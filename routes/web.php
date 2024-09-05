@@ -24,16 +24,9 @@ Route::get('/dashboard', function () {
 })->middleware('admin');
 
 Route::get('/home/formLaporan', function () {
-    $data = [
-        'name' => 'Syahrizal As',
-        'body' => 'Testing Kirim Email di Santri Koding'
-    ];
-   
-    Mail::to('rdh.rhmtllah@gmail.com')->send(new SendEmail($data));
-   
-    dd("Email Berhasil dikirim.");
     return view('formLaporan');
 });
+
 
 Route::get('/moreberita', function () {
     $posts = Post::latest()->simplePaginate(10)->withQueryString();
@@ -49,6 +42,11 @@ Route::post('/logout', [loginController::class, 'logout']);
 Route::post('/login', [loginController::class, 'auth']);
 Route::get('/register', [registerController::class, 'index'])->middleware('guest');
 Route::post('/register', [registerController::class, 'store']);
+Route::get('/verify', function () {
+    return view('verify');
+});
+Route::post('/verify', [registerController::class, 'verify']);
+
 
 Route::post('/darurat', [LocController::class, 'index'])->middleware('auth');
 Route::post('/laporkan', [laporanController::class, 'store']);

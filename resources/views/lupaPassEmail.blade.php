@@ -21,23 +21,26 @@
         <div class="  md:w-[48%] md:p-0 p-3 m-3 bg-white border border-gray-200 rounded-xl shadow-sm">
             <div class="p-4 sm:p-7">
                 <div class="text-center">
-                    <h1 class="block text-2xl font-bold text-gray-800">Verifikasi Akun</h1>
-                    
+                    <h1 class="block text-2xl font-bold text-gray-800">Reset Password</h1>
+                    <p class="mt-2 text-sm text-gray-600">
+                        Masukan Email Akun Anda
+                      
+                    </p>
                 </div>
 
                 <div class="mt-5">
                    
-                    <form action="/verify/{{ Auth()->user()->email }}" method="post">
+                    <form action="/resetPass/sendRecover" method="post">
                         @csrf
                         <div class="grid grid-cols-3 gap-4 place-content-center">
                             <div class="col-span-2">
                                 <!-- Form Group -->
                                 <div>
-                                    <div class="relative  border rounded-lg @error('token') border-red-500 @enderror">
-                                        <input placeholder="Masukan Kode Verifikasi" autofocus type="text" id="token" name="token"
-                                            value="{{ old('token') }}"
+                                    <div class="relative  border rounded-lg @error('email') border-red-500 @enderror">
+                                        <input placeholder="Email" autofocus type="email" id="email" name="email"
+                                            value="{{ old('email') }}"
                                             class="grow py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none "
-                                            required aria-describedby="token-error">
+                                            required aria-describedby="email-error">
                                         <div class="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
                                             <svg class="size-5 text-red-500" width="16" height="16"
                                                 fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
@@ -46,8 +49,8 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    @error('token')
-                                        <p class=" text-xs text-red-600 mt-2" id="token-error">{{ $message }}</p>
+                                    @error('email')
+                                        <p class=" text-xs text-red-600 mt-2" id="email-error">{{ $message }}</p>
                                     @enderror
 
                                 </div>
@@ -55,7 +58,7 @@
                             </div>
                             <div >
                                 <button type="submit"
-                                    class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Verifikasi</button>
+                                    class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Reset</button>
                             </div>
                           
                                

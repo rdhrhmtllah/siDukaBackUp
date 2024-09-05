@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             'alamat' => 'jl.admin plg',
             'nohp' => '0895620102962',
             'is_admin' => 1,
-            'nohp_verified_at' => now(),
+            'verified_at' => now(),
             'password' => Hash::make('admin'),
             'remember_token' => Str::random(10),
         ]);

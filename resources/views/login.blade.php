@@ -19,16 +19,16 @@
 
 <body>
 
-    <div class="container h-screen flex items-center justify-center">
+    <div class="h-screen flex items-center justify-center">
         <div class="mt-7  md:w-[28%] md:p-0 p-3 bg-white border border-gray-200 rounded-xl shadow-sm">
             <div class="p-4 sm:p-7">
                 <div class="text-center">
-                    <h1 class="block text-2xl font-bold text-gray-800">Sign in</h1>
+                    <h1 class="block text-2xl font-bold text-gray-800">Log in</h1>
                     <p class="mt-2 text-sm text-gray-600">
-                        Don't have an account yet?
+                        Belum punya akun?
                         <a class="text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium"
                             href="/register">
-                            Sign up here
+                            Daftar Disini
                         </a>
                     </p>
                 </div>
@@ -76,8 +76,7 @@
                                         </svg>
                                     </div>
                                 </div>
-                                <p class="hidden text-xs text-red-600 mt-2" id="email-error">Please include a valid
-                                    email address so we can get back to you</p>
+                               
                             </div>
                             <!-- End Form Group -->
 
@@ -86,7 +85,7 @@
                                 <div class="flex justify-between items-center ">
                                     <label for="password" class="block text-sm mb-2">Password</label>
                                     <a class="inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium"
-                                        href="../examples/html/recover-account.html">Forgot password?</a>
+                                        href="/resetPass">Lupa Password?</a>
                                 </div>
                                 <div class="relative  border rounded-lg">
                                     <input required type="password" id="password" name="password"
@@ -108,11 +107,11 @@
                             <!-- Checkbox -->
                             <div class="flex items-center">
                                 <div class="flex">
-                                    <input id="remember-me" name="remember-me" type="checkbox"
+                                    <input id="rememberMe" name="rememberMe" type="checkbox"
                                         class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500">
                                 </div>
                                 <div class="ms-3">
-                                    <label for="remember-me" class="text-sm">Remember me</label>
+                                    <label for="rememberMe" class="text-sm">Remember me</label>
                                 </div>
                             </div>
                             <!-- End Checkbox -->

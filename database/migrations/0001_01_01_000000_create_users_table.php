@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('nohp')->unique();
             $table->string('alamat');
-            $table->timestamp('nohp_verified_at')->nullable();
+            $table->timestamp('verified_at')->nullable();
             $table->string('token')->nullable();
             $table->boolean('is_admin')->default(false);
             $table->string('password');

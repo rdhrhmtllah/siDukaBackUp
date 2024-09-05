@@ -45,7 +45,12 @@ Route::post('/register', [registerController::class, 'store']);
 Route::get('/verify', function () {
     return view('verify');
 });
-Route::post('/verify', [registerController::class, 'verify']);
+Route::post('/verify/{user:email}', [registerController::class, 'verify']);
+
+Route::get('/resetPass', function () {
+    return view('lupaPassEmail');
+});
+Route::post('/resetPass/sendRecover', [loginController::class, 'resetPass']);
 
 
 Route::post('/darurat', [LocController::class, 'index'])->middleware('auth');

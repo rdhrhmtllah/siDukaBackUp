@@ -15,16 +15,16 @@
 </head>
 
 <body>
-    <div class="container h-screen flex items-center justify-center">
+    <div class=" h-screen flex items-center justify-center">
         <div class="mt-7  md:w-[48%] md:p-0 p-3 bg-white border border-gray-200 rounded-xl shadow-sm">
             <div class="p-4 sm:p-7">
                 <div class="text-center">
-                    <h1 class="block text-2xl font-bold text-gray-800">Sign up</h1>
+                    <h1 class="block text-2xl font-bold text-gray-800">Daftar</h1>
                     <p class="mt-2 text-sm text-gray-600">
-                        Already have an account?
+                        Sudah Punya Akun?
                         <a class="text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium"
                             href="/login">
-                            Sign in here
+                            Log in Disini
                         </a>
                     </p>
                 </div>
@@ -137,7 +137,7 @@
                                 <div>
                                     <label for="nohp" class="block text-sm mb-2">Nohp</label>
                                     <div class="relative  border rounded-lg  @error('nohp') border-red-500 @enderror">
-                                        <input type="number" id="nohp" value="{{ old('nohp') }}" name="nohp"
+                                        <input type="tel" id="nohp" value="{{ old('nohp') }}" name="nohp"
                                             class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
                                             required aria-describedby="nohp-error">
                                         <div class="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
@@ -193,10 +193,10 @@
                                             </svg>
                                         </div>
                                     </div>
-                                    <p class="hidden text-xs text-red-600 mt-2" id="confirm-password-error">Password
-                                        does
-                                        not
-                                        match the password</p>
+                                    @error('confirm-password')
+                                        <p class=" text-xs text-red-600 mt-2" id="name-error">{{ $message }}</p>
+                                    @enderror
+                                   
                                 </div>
                                 <!-- End Form Group -->
                             </div>
@@ -204,15 +204,19 @@
                                 <!-- Checkbox -->
                                 <div class="flex items-center">
                                     <div class="flex">
-                                        <input id="remember-me" name="remember-me" type="checkbox"
+                                        <input id="termsConditions" name="termsConditions" type="checkbox"
                                             class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500">
                                     </div>
+                                   
                                     <div class="ms-3">
-                                        <label for="remember-me" class="text-sm">I accept the <a
+                                        <label for="termsConditions" class="text-sm">I accept the <a
                                                 class="text-blue-600 decoration-2 hover:underline focus:outline-none focus:underline font-medium"
                                                 href="#">Terms and Conditions</a></label>
                                     </div>
                                 </div>
+                                @error('termsConditions')
+                                <p class=" text-xs text-red-600 mt-2" id="name-error">{{ $message }}</p>
+                            @enderror
                                 <!-- End Checkbox -->
                             </div>
                             <div class="col-span-3">

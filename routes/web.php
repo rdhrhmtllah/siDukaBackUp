@@ -50,8 +50,12 @@ Route::post('/verify/{user:email}', [registerController::class, 'verify']);
 Route::get('/resetPass', function () {
     return view('lupaPassEmail');
 });
-Route::post('/resetPass/sendRecover', [loginController::class, 'resetPass']);
 
+Route::post('/resetPass/sendRecover', [loginController::class, 'resetPass'])->middleware('guest')->name('password.email');;
+// Route::post('/resetPass/{user:email}', [loginController::class,'updatePass'])->middleware('guest')->name('password.reset');
+Route::get('/reset-password/{token}', function (string $token) {
+    return view('auth.reset-password', ['token' => $token]);
+})->middleware('guest')->name('password.reset');
 
 Route::post('/darurat', [LocController::class, 'index'])->middleware('auth');
 Route::post('/laporkan', [laporanController::class, 'store']);

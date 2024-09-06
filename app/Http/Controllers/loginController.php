@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\resetPass;
 use App\Models\User;
+use App\Mail\resetPass;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Password;
 
 class loginController extends Controller
 {
@@ -47,25 +48,27 @@ class loginController extends Controller
     }
 
     public function resetPass(Request $request){
-        $credentials = $request->validate([
-            'email'=> ['required', 'email'],
-        ]);
-        
-        if(User::where('email', '=', $credentials['email'])->exists()) {
-           $penguna = User::where('email', '=', $credentials['email'])->get();
-        //    dd($penguna[0]->token);
-            $data = [
-                'email' => $credentials['email'],
-                'token' => $penguna[0]->token,    
-            ];
-           
-            Mail::to($credentials['email'])->send(new resetPass($data));
+     
+    $request->validate(['email' => 'required']);
+ 
+    $status = Password::sendResetLink(
+        $request->only('email')
+    );
+ 
+    return $status === Password::RESET_LINK_SENT
+                ? back()->with(['status' => __($status)])
+                : back()->withErrors(['email' => __($status)]);
+    }
+    
 
-            $email = $credentials['email'];  
-          return view('components.resetTerkirim',['email' => $email]);
-        }else{
-            toastr()->error("Email salah Atau akun tidak terdaftar");
-            return back();
-        }
+    public function updatePass(Request $request, user $user){
+        $token = $request->session()->token();
+        $token = csrf_token();
+        dd($user);
+        $penguna = User::where('email', '=', $user)->get();
+    }
+    
+    public function confirmUser(Request $request){
+        dd($request);
     }
 }

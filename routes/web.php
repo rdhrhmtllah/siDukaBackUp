@@ -87,3 +87,7 @@ Route::post('/akunTerverifikasiUser/{user:id}/edit', [penggunaController::class,
 Route::post('/akunTerverifikasiUser/{user:id}', [penggunaController::class, 'destroy'])->middleware('admin');
 
 Route::get('/akunBelumVerifikasi', [penggunaController::class, 'belumVerifikasi'])->middleware('admin');
+
+Route::get('/manageBerita', function () {
+    return view('manageBerita');
+});

@@ -30,6 +30,15 @@ class penggunaController extends Controller
         // dd($datas);
         return view('akunTerverifikasiUser', ['datas' => $datas, 'hitungDarurat' => $darurat, 'hitungNormal' => $normal, 'hitungSelesai' => $selesai]);
     }
+    public function belumVerifikasi() 
+    {
+        $darurat = laporan::latest()->where('urgensi', '=', 1)->where('keterangan', '=', 0)->count();
+        $normal = laporan::latest()->where('urgensi', '=', 0)->where('keterangan', '=', 0)->count();
+        $selesai = laporan::latest()->where('keterangan', '=', 1)->count();
+        $datas = user::latest()->where('is_admin', '=', 0)->where('verified_at', '==', null)->simplePaginate(5);
+        // dd($datas);
+        return view('akunTerverifikasiUser', ['datas' => $datas, 'hitungDarurat' => $darurat, 'hitungNormal' => $normal, 'hitungSelesai' => $selesai]);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -121,4 +130,5 @@ class penggunaController extends Controller
         toastr()->success("Pengguna Telah Dihapus");
         return back();
     }
+    
 }

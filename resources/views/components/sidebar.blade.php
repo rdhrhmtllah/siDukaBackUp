@@ -103,7 +103,7 @@ lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
                                                    </a>
                                                </li>
                                                <li>
-                                                   <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                                   <a class="{{ request()->is('akunTerverifikasiUser') ? 'bg-gray-100' : '' }}  flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
                                                        href="/akunTerverifikasiUser">
                                                        User
                                                    </a>
@@ -113,45 +113,12 @@ lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
                                        </div>
                                    </li>
                                    <li class="hs-accordion" id="users-accordion-sub-2">
-                                       <button type="button"
-                                           class="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                                           aria-expanded="true" aria-controls="users-accordion-sub-2-child">
-                                           Belum Verifikasi
+                                    <a class="{{ request()->is('akunBelumVerifikasi') ? 'bg-gray-100' : '' }}  flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                    href="/akunBelumVerifikasi">
+                                   Belum Diverifikasi
+                                </a>
 
-                                           <svg class="hs-accordion-active:block ms-auto hidden size-4"
-                                               xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                               viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                               <path d="m18 15-6-6-6 6" />
-                                           </svg>
-
-                                           <svg class="hs-accordion-active:hidden ms-auto block size-4"
-                                               xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                               viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                               <path d="m6 9 6 6 6-6" />
-                                           </svg>
-                                       </button>
-
-                                       <div id="users-accordion-sub-2-child"
-                                           class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden"
-                                           role="region" aria-labelledby="users-accordion-sub-2">
-                                           <ul class="pt-1 space-y-1">
-                                               <li>
-                                                   <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                                                       href="#">
-                                                       Antrian
-                                                   </a>
-                                               </li>
-                                               <li>
-                                                   <a class="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                                                       href="#">
-                                                       Ditolak
-                                                   </a>
-                                               </li>
-
-                                           </ul>
-                                       </div>
+                                      
                                    </li>
                                </ul>
                            </div>

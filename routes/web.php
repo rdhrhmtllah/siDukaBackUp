@@ -6,10 +6,16 @@ use App\Models\laporan;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LocController;
+use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\laporanController;
 use App\Http\Controllers\penggunaController;
 use App\Http\Controllers\registerController;
+use App\Models\User;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 Route::get('/', function () {
     $posts = Post::latest()->take(4)->get();
@@ -54,8 +60,33 @@ Route::get('/resetPass', function () {
 Route::post('/resetPass/sendRecover', [loginController::class, 'resetPass'])->middleware('guest')->name('password.email');;
 // Route::post('/resetPass/{user:email}', [loginController::class,'updatePass'])->middleware('guest')->name('password.reset');
 Route::get('/reset-password/{token}', function (string $token) {
-    return view('auth.reset-password', ['token' => $token]);
+    return view('formResetPass', ['token' => $token]);
 })->middleware('guest')->name('password.reset');
+
+Route::post('/reset-password', function (Request $request) {
+    $request->validate([
+        'token' => 'required',
+        'password' => 'required|min:5|max:255|required_with:confirm-password',
+        'confirm-password' => 'required|min:5|same:password',
+    ]);
+ 
+    $status = Password::reset(
+        $request->only( 'password', 'password_confirmation', 'token'),
+        function (User $user, string $password) {
+            $user->forceFill([
+                'password' => Hash::make($password)
+            ])->setRememberToken(Str::random(60));
+ 
+            $user->save();
+ 
+            event(new PasswordReset($user));
+        }
+    );
+ 
+    return $status === Password::PASSWORD_RESET
+                ? redirect()->route('login')->with('status', __($status))
+                : back()->withErrors(['email' => [__($status)]]);
+})->middleware('guest')->name('password.update');
 
 Route::post('/darurat', [LocController::class, 'index'])->middleware('auth');
 Route::post('/laporkan', [laporanController::class, 'store']);

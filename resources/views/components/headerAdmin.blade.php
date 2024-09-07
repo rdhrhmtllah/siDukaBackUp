@@ -75,8 +75,8 @@
                         <span class="sr-only">Search</span>
                     </button> --}}
 
-                    {{-- <button type="button"
-                        class="size-[38px] relative inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none">
+                    <button type="button"
+                        class="size-[38px] relative inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none" >
                         <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
@@ -84,8 +84,21 @@
                             <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
                         </svg>
                         <span class="sr-only">Notifications</span>
-                    </button> --}}
+                    </button>
 
+                    {{-- <button id="hs-pro-dnnd" type="button" class="hs-tooltip-toggle relative d2d9z jqzvs t2j25 items-center syne5 drtn2 aesap r0r2c daned s1xgi j01y2 otank wh5re lug43 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+                        <svg class="ylm2u yaf2e" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+                          <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+                        </svg>
+                        <span class="flex absolute ztbkf vk6ex bk6sw -mt-1.5 -me-1.5">
+                          <span class="v3ykd absolute jqzvs te00u drtn2 etd7c f9jyf dark:bg-red-600"></span>
+                          <span class="relative cuvt7 pv9gh jqzvs t2j25 items-center mwc8k zltj5 i3pem drtn2 synie">
+                            2
+                          </span>
+                        </span>
+                      </button> --}}
+{{-- 
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             <i class="fa fa-bell"></i>
@@ -105,7 +118,7 @@
                                     <a href="#" class="text-secondary"><li class="p-1 text-secondary"> {{$notification->data['data']}}</li></a>
                                     @endforeach
                         </ul>
-                     </li>
+                     </li> --}}
 
 
 

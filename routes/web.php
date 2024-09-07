@@ -101,4 +101,4 @@ Route::post('/manageBerita/{post:slug}/show', [manageBeritaController::class,'sh
 Route::post('/manageBerita/{post:slug}', [manageBeritaController::class,'destroy'])->middleware('admin');
 Route::post('/addBerita', [manageBeritaController::class,'store'])->middleware('admin');
 
-Route::get('/mark-as-read', [registerController::class,'markAsRead'])->name('mark-as-read');
+Route::get('/mark-as-read', [laporanController::class,'markAsRead'])->name('mark-as-read');

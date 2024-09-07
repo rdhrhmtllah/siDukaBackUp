@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\laporan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\notifikasiLaporan;
 
 class laporanController extends Controller
 {
@@ -62,11 +64,30 @@ class laporanController extends Controller
         $validate['foto'] = $filename;
         $request->file('foto')->storeAs('post-image', $filename);
 
-        laporan::create($validate);
-        toastr()->success('Laporan Diterima, Kami akan segera menindak laporan.');
-        return redirect('/')->with('addLaporan', 'Berhasil Menambahkan Laporan');
+        $laporan = laporan::create($validate);
+        // toastr()->success('Laporan Diterima, Kami akan segera menindak laporan.');
+        // return redirect('/')->with('addLaporan', 'Berhasil Menambahkan Laporan');
+
+        if($laporan){
+         
+            $adminUsers = User::where('is_admin', '1')->get();
+            foreach ($adminUsers as $admin) {
+                $admin->notify(new notifikasiLaporan($laporan));
+            }
+            toastr()->success('Laporan Diterima, Kami akan segera menindak laporan.');
+            return redirect('/');
+        }else{
+            toastr()->success('Gagal Mengirim Laporan, Kesalahan Mengirim!');
+            return back();
+        }
 
     }
+
+    public function markAsRead()
+    {
+          Auth::user()->unreadNotifications->markAsRead();
+          return redirect()->back();
+     }
 
     /**
      * Display the specified resource.

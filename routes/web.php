@@ -100,3 +100,5 @@ Route::get('/manageBerita', [manageBeritaController::class,'index'])->middleware
 Route::post('/manageBerita/{post:slug}/show', [manageBeritaController::class,'show'])->middleware('admin');
 Route::post('/manageBerita/{post:slug}', [manageBeritaController::class,'destroy'])->middleware('admin');
 Route::post('/addBerita', [manageBeritaController::class,'store'])->middleware('admin');
+
+Route::get('/mark-as-read', [registerController::class,'markAsRead'])->name('mark-as-read');

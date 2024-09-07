@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Mail\SendEmail;
+use App\Notifications\notifikasiLaporan;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +35,8 @@ class registerController extends Controller
         
         $user=User::create($validatedData);
         Auth::login($user);
+
+      
         
         // dd($validatedData['token']);
         $data = [
@@ -46,10 +49,26 @@ class registerController extends Controller
        
         // dd("Email Berhasil dikirim.");
         // session()->flash('success','Pengguna Berhasil Ditambahkan!, Silahkan Login');
-        toastr()->success('sukses silahkan login.');
 
-        return redirect('/verify');
+        if($user){
+         
+            $adminUsers = User::where('is_admin', '1')->get();
+            foreach ($adminUsers as $admin) {
+                $admin->notify(new notifikasiLaporan($user));
+            }
+            toastr()->success('Sukses Mendaftar, silahkan login!');
+            return redirect('/verify');
+        }else{
+            toastr()->success('Gagal Mendaftar, Kesalahan Mendaftar!');
+            return back();
+        }
     }
+
+    public function markAsRead()
+    {
+          Auth::user()->unreadNotifications->markAsRead();
+          return redirect()->back();
+     }
 
     public function verify(Request $request, User $user){
         $validatedData = $request->validate([

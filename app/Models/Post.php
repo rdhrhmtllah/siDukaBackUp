@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class post extends Model
+class Post extends Model
 {
     use HasFactory, Sluggable;
     protected $fillable = [
-        'slug', 'title', 'status', 'author', 'isi',
+        'slug', 'title', 'status', 'author_id', 'isi', 'foto'
     ];
     protected $with = ['author'];
     public function author(): BelongsTo

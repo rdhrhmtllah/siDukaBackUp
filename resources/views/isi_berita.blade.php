@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
 
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/style.css">
     @vite('resources/css/app.css')
-    <title>Home</title>
+    @vite('resources/js/app.js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>{{$post->judul}}</title>
 </head>
 
 <body>
@@ -37,7 +41,7 @@
                                 href="#">
                                 {{ $post['status'] == 0 ? 'Darurat' : 'Laporan' }}
                             </a>
-                            <p class="text-xs sm:text-sm text-gray-800 ">January 18, 2023</p>
+                            <p class="text-xs sm:text-sm text-gray-800 ">{{date('F, d Y', strtotime($post->created_at));}}</p>
                         </div>
                         <div class="space-y-3">
 
@@ -45,9 +49,13 @@
                         </div>
 
                         <figure>
-                            <img class="w-full object-cover rounded-xl"
-                                src="https://images.unsplash.com/photo-1671726203454-488ab18f7eda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-                                alt="Image Description">
+                            <img aria-haspopup="dialog" aria-expanded="false"
+                            aria-controls="hs-subscription-with-image"
+                            data-hs-overlay="#hs-subscription-with-image"
+                            onclick="modalImg('{{ asset('/storage/post-image/' . $post->foto) }}')"
+                            id="myimg"
+                            src="{{ asset('/storage/post-image/' . $post->foto) }}"
+                            class="w-full object-cover rounded-xl" alt="">
                             <figcaption class="mt-3 text-sm text-center text-gray-500 ">
                                 A man and a woman looking at a cell phone.
                             </figcaption>

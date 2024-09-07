@@ -5,7 +5,7 @@
          aria-label="Global">
          <div class="md:col-span-3">
              <!-- Logo -->
-             <a class="flex-none rounded-xl text-xl inline-block font-semibold focus:outline-none focus:opacity-80">
+             <a href="/" class="flex-none rounded-xl text-xl inline-block font-semibold focus:outline-none focus:opacity-80">
                  <h1 class="text-3xl font-bold">siDuKa</h1>
              </a>
              <!-- End Logo -->
@@ -30,7 +30,7 @@
                      role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-hover-event">
 
                      <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                         href="#">
+                         href="/userProfile">
                          Profile
                      </a>
                      @can('admin')
@@ -95,7 +95,7 @@
                      <x-nav-link href="/moreberita" :active="request()->is('moreberita')">BERITA</x-nav-link>
                  </div>
                  <div>
-                     <x-nav-link href="#" :active="request()->is('#')">ABOUT</x-nav-link>
+                     <x-nav-link href="/about" :active="request()->is('about')">ABOUT</x-nav-link>
                  </div>
                  <div>
                      <x-nav-link href="#" :active="request()->is('#')">CONTACT</x-nav-link>

@@ -9,6 +9,7 @@ use App\Http\Controllers\LocController;
 use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\laporanController;
+use App\Http\Controllers\manageBeritaController;
 use App\Http\Controllers\penggunaController;
 use App\Http\Controllers\registerController;
 
@@ -29,6 +30,13 @@ Route::get('/home/formLaporan', function () {
     return view('formLaporan');
 });
 
+Route::get('/userProfile', function () {
+    return view('userProfile');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
 
 Route::get('/moreberita', function () {
     $posts = Post::latest()->simplePaginate(8)->withQueryString();
@@ -36,7 +44,7 @@ Route::get('/moreberita', function () {
 });
 
 Route::get('/moreberita/{post:slug}', function (Post $post) {
-    return view('isi_berita', ['post' => $post, 'posts' => Post::all()->take(4)]);
+    return view('isi_berita', ['post' => $post, 'posts' => Post::latest()->skip(1)->take(4)->get()]);
 });
 
 Route::get('/login', [loginController::class, 'index'])->name('login')->middleware('guest');
@@ -88,6 +96,7 @@ Route::post('/akunTerverifikasiUser/{user:id}', [penggunaController::class, 'des
 
 Route::get('/akunBelumVerifikasi', [penggunaController::class, 'belumVerifikasi'])->middleware('admin');
 
-Route::get('/manageBerita', function () {
-    return view('manageBerita');
-});
+Route::get('/manageBerita', [manageBeritaController::class,'index'])->middleware('admin');
+Route::post('/manageBerita/{post:slug}/show', [manageBeritaController::class,'show'])->middleware('admin');
+Route::post('/manageBerita/{post:slug}', [manageBeritaController::class,'destroy'])->middleware('admin');
+Route::post('/addBerita', [manageBeritaController::class,'store'])->middleware('admin');

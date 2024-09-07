@@ -15,11 +15,12 @@
 
             <form action="/darurat" method="POST">
                 @csrf
-                <button class="flex flex-wrap items-center justify-center text-center">
+                <input type="hidden" name="location" id="location" >
+                <button type="button" onclick="getLocation()" class="flex flex-wrap items-center justify-center text-center">
                     <div class=" bg-red-700 rounded-full w-[180px] h-[180px] animate-ping"></div>
                     <div class=" absolute bg-red-700 rounded-full w-[250px] h-[250px] "></div>
                     <div class="absolute bg-red-800 rounded-full w-[220px] h-[220px]"></div>
-                    <h1 class="text-2xl text-white absolute font-bold ">DARURAT</h1>
+                    <h1 id="anu" class="text-2xl text-white absolute font-bold ">DARURAT</h1>
                 </button>
             </form>
         </div>

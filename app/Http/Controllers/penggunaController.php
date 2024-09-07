@@ -17,7 +17,7 @@ class penggunaController extends Controller
         $darurat = laporan::latest()->where('urgensi', '=', 1)->where('keterangan', '=', 0)->count();
         $normal = laporan::latest()->where('urgensi', '=', 0)->where('keterangan', '=', 0)->count();
         $selesai = laporan::latest()->where('keterangan', '=', 1)->count();
-        $datas = user::latest()->where('is_admin', '=', 1)->where('keterangan', '!=', null)->simplePaginate(5);
+        $datas = user::latest()->where('is_admin', '=', 1)->where('verified_at', '!=', null)->simplePaginate(5);
         // dd($datas);
         return view('akunTerverifikasi', ['datas' => $datas, 'hitungDarurat' => $darurat, 'hitungNormal' => $normal, 'hitungSelesai' => $selesai]);
     }
@@ -26,7 +26,7 @@ class penggunaController extends Controller
         $darurat = laporan::latest()->where('urgensi', '=', 1)->where('keterangan', '=', 0)->count();
         $normal = laporan::latest()->where('urgensi', '=', 0)->where('keterangan', '=', 0)->count();
         $selesai = laporan::latest()->where('keterangan', '=', 1)->count();
-        $datas = user::latest()->where('is_admin', '=', 0)->where('keterangan', '!=', null)->simplePaginate(5);
+        $datas = user::latest()->where('is_admin', '=', 0)->where('verified_at', '!=', null)->simplePaginate(5);
         // dd($datas);
         return view('akunTerverifikasiUser', ['datas' => $datas, 'hitungDarurat' => $darurat, 'hitungNormal' => $normal, 'hitungSelesai' => $selesai]);
     }
@@ -35,7 +35,7 @@ class penggunaController extends Controller
         $darurat = laporan::latest()->where('urgensi', '=', 1)->where('keterangan', '=', 0)->count();
         $normal = laporan::latest()->where('urgensi', '=', 0)->where('keterangan', '=', 0)->count();
         $selesai = laporan::latest()->where('keterangan', '=', 1)->count();
-        $datas = user::latest()->where('is_admin', '=', 0)->where('verified_at', '==', null)->simplePaginate(5);
+        $datas = user::latest()->where('is_admin', '=', 0)->where('verified_at', '=', null)->simplePaginate(5);
         // dd($datas);
         return view('akunTerverifikasiUser', ['datas' => $datas, 'hitungDarurat' => $darurat, 'hitungNormal' => $normal, 'hitungSelesai' => $selesai]);
     }

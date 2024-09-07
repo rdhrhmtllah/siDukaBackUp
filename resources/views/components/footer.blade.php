@@ -13,7 +13,7 @@
             <!-- Card -->
             <div class="flex flex-col border rounded-xl p-4 sm:p-6 lg:p-8 ">
                 <h2 class="mb-8 text-xl font-semibold text-gray-800 ">
-                    Fill in the form
+                    KOTAK SARAN
                 </h2>
 
                 <form>
@@ -62,13 +62,12 @@
 
                     <div class="mt-4 grid">
                         <button type="submit"
-                            class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-[#E6B9A6] text-white hover:bg-[#E8987C] disabled:opacity-50 disabled:pointer-events-none">Send
-                            inquiry</button>
+                            class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-[#E6B9A6] text-white hover:bg-[#E8987C] disabled:opacity-50 disabled:pointer-events-none">Kirim Saran</button>
                     </div>
 
                     <div class="mt-3 text-center">
                         <p class="text-sm text-gray-500 ">
-                            We'll get back to you in 1-2 business days.
+                           Terimakasih Telah Memberikan saran.
                         </p>
                     </div>
                 </form>

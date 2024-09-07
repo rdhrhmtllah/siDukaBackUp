@@ -21,7 +21,11 @@
       <!-- Card -->
       <a class="group sm:flex rounded-xl focus:outline-none" href="/moreberita/{{ $post->slug }}">
         <div class="shrink-0 relative rounded-xl overflow-hidden h-[200px] sm:w-[250px] sm:h-[350px] w-full">
+          @if ($post->foto == null)
           <img class="size-full absolute top-0 start-0 object-cover" src="https://images.unsplash.com/photo-1664574654529-b60630f33fdb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80" alt="Blog Image">
+          @else
+          <img class="size-full absolute top-0 start-0 object-cover" src="{{ asset('/storage/post-image/' . $post->foto) }}" alt="Blog Image">
+          @endif
         </div>
   
         <div class="grow">
@@ -58,10 +62,10 @@
                 </div>
                 <div class="ms-2.5 sm:ms-4">
                   <h4 class="font-semibold text-gray-800">
-                    Aaron Larsson
+                    {{$post->author->name}}
                   </h4>
                   <p class="text-xs text-gray-500">
-                    Feb 15, 2021
+                    {{date('M d, Y', strtotime($post->created_at));}}
                   </p>
                 </div>
               </div>

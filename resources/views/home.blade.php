@@ -29,7 +29,7 @@
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
             <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
                 <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 ">
-                    Laporan Terbaru</h2>
+                    Berita Laporan Terbaru</h2>
                 <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">kami akan selalu memantau aplikasi
                     demi keselamatan masyarakat. </p>
             </div>
@@ -94,24 +94,23 @@
     <x-footer></x-footer>
 
 
-
-
     <script>
-        const x = document.getElementById("demo");
+        const x = document.getElementById("location");
         
         function getLocation() {
           if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
           } else { 
-            x.innerHTML = "Geolocation is not supported by this browser.";
+            x.value = "Geolocation is not supported by this browser.";
           }
         }
         
         function showPosition(position) {
-          x.innerHTML = "Latitude: " + position.coords.latitude + 
-          "<br>Longitude: " + position.coords.longitude;
+          x.value = position.coords.latitude + ','+ position.coords.longitude;
         }
         </script>
+
+   
     <script src="./node_modules/preline/dist/preline.js"></script>
 
 </body>

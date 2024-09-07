@@ -49,7 +49,7 @@
                                         {{ $data->alamat }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
-                                        {{ $data->nohp_verified_at }}
+                                        {{ $data->verified_at }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                                         {{ $data->updated_at }}

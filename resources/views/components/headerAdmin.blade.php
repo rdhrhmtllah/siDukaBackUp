@@ -75,7 +75,7 @@
                         <span class="sr-only">Search</span>
                     </button> --}}
 
-                    <button type="button"
+                    {{-- <button type="button"
                         class="size-[38px] relative inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none" >
                         <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -84,7 +84,215 @@
                             <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
                         </svg>
                         <span class="sr-only">Notifications</span>
-                    </button>
+                    </button> --}}
+
+                    <div class="hs-dropdown relative inline-flex px-5">
+                      {{-- Button notification --}}
+                        <button id="size-[38px] inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+                            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+                            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+                        </svg>
+                        <span class="sr-only">Notifications</span>
+                        </button>
+                      {{-- notification dropdown --}}
+                        <div class="hs-dropdown-menu transition-[opacity,margin]  duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-1 space-y-0.5 mt-2 divide-y divide-gray-200" role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-with-title">
+                            <span class="block py-2 px-3 text-xs font-medium uppercase text-gray-400">
+                              Semua Notifikasi
+                            </span>
+                          <div class="py-2 first:pt-0 last:pb-0 overflow-y-scroll  max-h-96  ">
+                           {{-- content notifikasi --}}
+                            <a class="relative group q0mum flex  rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+                                <div class="relative ylm2u  w-14 m-5">
+                                    <img class="ylm2u d2d9z drtn2 rounded-full" src="https://images.unsplash.com/photo-1659482634023-2c4fda99ac0c?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=320&amp;h=320&amp;q=80" alt="Avatar">
+                                    <span class="absolute jdy7d -start-3 jzf4d riqyd drtn2 dark:bg-blue-500"></span>
+                                  </div>
+                                <div class="v6j3t">
+                                  <p class="zlgt1 daned dark:text-neutral-500">
+                                    3 days ago
+                                  </p>
+          
+                                  <span class="block ibyb7 mwwf4 i6scm dark:text-neutral-300">
+                                    Clara Becker
+                                  </span>
+                                  <p class="ibyb7 daned dark:text-neutral-500">
+                                    mentioned you in a vnh1v
+                                  </p>
+                                  <div class="huvyz">
+                                    <blockquote class="sukbe ttubf m457n ibyb7 daned dark:border-neutral-700 dark:text-neutral-400">
+                                      Nice work, love! You really nailed it. Keep it up!
+                                    </blockquote>
+                                  </div>
+                                </div>
+          
+                                <div>
+                                  <div class="r5huv fyyx9 vyd5t iykm3 r38dj">
+                                 
+                                  </div>
+                                </div>
+                            </a>
+                            <a class="relative group q0mum flex  rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+                                <div class="relative ylm2u  w-14 m-5">
+                                    <img class="ylm2u d2d9z drtn2 rounded-full" src="https://images.unsplash.com/photo-1659482634023-2c4fda99ac0c?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=320&amp;h=320&amp;q=80" alt="Avatar">
+                                    <span class="absolute jdy7d -start-3 jzf4d riqyd drtn2 dark:bg-blue-500"></span>
+                                  </div>
+                                <div class="v6j3t">
+                                  <p class="zlgt1 daned dark:text-neutral-500">
+                                    3 days ago
+                                  </p>
+          
+                                  <span class="block ibyb7 mwwf4 i6scm dark:text-neutral-300">
+                                    Clara Becker
+                                  </span>
+                                  <p class="ibyb7 daned dark:text-neutral-500">
+                                    mentioned you in a vnh1v
+                                  </p>
+                                  <div class="huvyz">
+                                    <blockquote class="sukbe ttubf m457n ibyb7 daned dark:border-neutral-700 dark:text-neutral-400">
+                                      Nice work, love! You really nailed it. Keep it up!
+                                    </blockquote>
+                                  </div>
+                                </div>
+          
+                                <div>
+                                  <div class="r5huv fyyx9 vyd5t iykm3 r38dj">
+                                 
+                                  </div>
+                                </div>
+                            </a>
+                            <a class="relative group q0mum flex  rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+                                <div class="relative ylm2u  w-14 m-5">
+                                    <img class="ylm2u d2d9z drtn2 rounded-full" src="https://images.unsplash.com/photo-1659482634023-2c4fda99ac0c?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=320&amp;h=320&amp;q=80" alt="Avatar">
+                                    <span class="absolute jdy7d -start-3 jzf4d riqyd drtn2 dark:bg-blue-500"></span>
+                                  </div>
+                                <div class="v6j3t">
+                                  <p class="zlgt1 daned dark:text-neutral-500">
+                                    3 days ago
+                                  </p>
+          
+                                  <span class="block ibyb7 mwwf4 i6scm dark:text-neutral-300">
+                                    Clara Becker
+                                  </span>
+                                  <p class="ibyb7 daned dark:text-neutral-500">
+                                    mentioned you in a vnh1v
+                                  </p>
+                                  <div class="huvyz">
+                                    <blockquote class="sukbe ttubf m457n ibyb7 daned dark:border-neutral-700 dark:text-neutral-400">
+                                      Nice work, love! You really nailed it. Keep it up!
+                                    </blockquote>
+                                  </div>
+                                </div>
+          
+                                <div>
+                                  <div class="r5huv fyyx9 vyd5t iykm3 r38dj">
+                                 
+                                  </div>
+                                </div>
+                            </a>
+                            <a class="relative group q0mum flex  rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+                                <div class="relative ylm2u  w-14 m-5">
+                                    <img class="ylm2u d2d9z drtn2 rounded-full" src="https://images.unsplash.com/photo-1659482634023-2c4fda99ac0c?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=320&amp;h=320&amp;q=80" alt="Avatar">
+                                    <span class="absolute jdy7d -start-3 jzf4d riqyd drtn2 dark:bg-blue-500"></span>
+                                  </div>
+                                <div class="v6j3t">
+                                  <p class="zlgt1 daned dark:text-neutral-500">
+                                    3 days ago
+                                  </p>
+          
+                                  <span class="block ibyb7 mwwf4 i6scm dark:text-neutral-300">
+                                    Clara Becker
+                                  </span>
+                                  <p class="ibyb7 daned dark:text-neutral-500">
+                                    mentioned you in a vnh1v
+                                  </p>
+                                  <div class="huvyz">
+                                    <blockquote class="sukbe ttubf m457n ibyb7 daned dark:border-neutral-700 dark:text-neutral-400">
+                                      Nice work, love! You really nailed it. Keep it up!
+                                    </blockquote>
+                                  </div>
+                                </div>
+          
+                                <div>
+                                  <div class="r5huv fyyx9 vyd5t iykm3 r38dj">
+                                 
+                                  </div>
+                                </div>
+                            </a>
+                            <a class="relative group q0mum flex  rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+                                <div class="relative ylm2u  w-14 m-5">
+                                    <img class="ylm2u d2d9z drtn2 rounded-full" src="https://images.unsplash.com/photo-1659482634023-2c4fda99ac0c?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=320&amp;h=320&amp;q=80" alt="Avatar">
+                                    <span class="absolute jdy7d -start-3 jzf4d riqyd drtn2 dark:bg-blue-500"></span>
+                                  </div>
+                                <div class="v6j3t">
+                                  <p class="zlgt1 daned dark:text-neutral-500">
+                                    3 days ago
+                                  </p>
+          
+                                  <span class="block ibyb7 mwwf4 i6scm dark:text-neutral-300">
+                                    Clara Becker
+                                  </span>
+                                  <p class="ibyb7 daned dark:text-neutral-500">
+                                    mentioned you in a vnh1v
+                                  </p>
+                                  <div class="huvyz">
+                                    <blockquote class="sukbe ttubf m457n ibyb7 daned dark:border-neutral-700 dark:text-neutral-400">
+                                      Nice work, love! You really nailed it. Keep it up!
+                                    </blockquote>
+                                  </div>
+                                </div>
+          
+                                <div>
+                                  <div class="r5huv fyyx9 vyd5t iykm3 r38dj">
+                                 
+                                  </div>
+                                </div>
+                            </a>
+                            <a class="relative group q0mum flex  rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+                                <div class="relative ylm2u  w-14 m-5">
+                                    <img class="ylm2u d2d9z drtn2 rounded-full" src="https://images.unsplash.com/photo-1659482634023-2c4fda99ac0c?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=320&amp;h=320&amp;q=80" alt="Avatar">
+                                    <span class="absolute jdy7d -start-3 jzf4d riqyd drtn2 dark:bg-blue-500"></span>
+                                  </div>
+                                <div class="v6j3t">
+                                  <p class="zlgt1 daned dark:text-neutral-500">
+                                    3 days ago
+                                  </p>
+          
+                                  <span class="block ibyb7 mwwf4 i6scm dark:text-neutral-300">
+                                    Clara Becker
+                                  </span>
+                                  <p class="ibyb7 daned dark:text-neutral-500">
+                                    mentioned you in a vnh1v
+                                  </p>
+                                  <div class="huvyz">
+                                    <blockquote class="sukbe ttubf m457n ibyb7 daned dark:border-neutral-700 dark:text-neutral-400">
+                                      Nice work, love! You really nailed it. Keep it up!
+                                    </blockquote>
+                                  </div>
+                                </div>
+          
+                                <div>
+                                  <div class="r5huv fyyx9 vyd5t iykm3 r38dj">
+                                 
+                                  </div>
+                                </div>
+                            </a>
+                          </div>
+                          <div class="py-2 first:pt-0 last:pb-0">
+                          
+                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+                                  </svg>
+                                  
+                              Mark all as read
+                            </a>
+                          </div>
+                        </div>
+                    </div>
+
+                    
 
                     {{-- <button id="hs-pro-dnnd" type="button" class="hs-tooltip-toggle relative d2d9z jqzvs t2j25 items-center syne5 drtn2 aesap r0r2c daned s1xgi j01y2 otank wh5re lug43 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
                         <svg class="ylm2u yaf2e" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

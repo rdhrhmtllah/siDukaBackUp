@@ -17,6 +17,7 @@ class notifikasiLaporan extends Notification
      */
     public function __construct($data)
     {
+        
         $this->data = $data;
     }
 
@@ -38,7 +39,11 @@ class notifikasiLaporan extends Notification
     public function toArray(object $notifiable): array
     {
         return [
-            'data' => $this->data->name.' Laporan Diterima'
+            'data' => $this->data->judulKejadian.'  Laporan Diterima',
+            'urgensi' => $this->data->urgensi,
+            'dibuat' => $this->data->created_at,
+            'pembuat' => $this->data->pembuat,
+            'foto' => $this->data->foto,
         ];
     }
 }

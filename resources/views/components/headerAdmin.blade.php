@@ -103,191 +103,44 @@
                               Semua Notifikasi
                             </span>
                           <div class="py-2 first:pt-0 last:pb-0 overflow-y-scroll  max-h-96  ">
-                           {{-- content notifikasi --}}
-                            <a class="relative group q0mum flex  rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+                              {{-- content notifikasi --}}
+                              @foreach (auth()->user()->unreadNotifications as $notification)
+                              <a class="relative me-3 group q0mum flex  rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
                                 <div class="relative ylm2u  w-14 m-5">
-                                    <img class="ylm2u d2d9z drtn2 rounded-full" src="https://images.unsplash.com/photo-1659482634023-2c4fda99ac0c?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=320&amp;h=320&amp;q=80" alt="Avatar">
+                                    <img class="ylm2u d2d9z drtn2 rounded-full" src="{{ asset('/storage/post-image/' . $notification->data['foto']) }}" alt="Avatar">
                                     <span class="absolute jdy7d -start-3 jzf4d riqyd drtn2 dark:bg-blue-500"></span>
                                   </div>
                                 <div class="v6j3t">
                                   <p class="zlgt1 daned dark:text-neutral-500">
-                                    3 days ago
+                                    {{ \Carbon\Carbon::parse($notification->data['dibuat'])->diffForhumans() }}
                                   </p>
           
                                   <span class="block ibyb7 mwwf4 i6scm dark:text-neutral-300">
-                                    Clara Becker
+                                    {{$notification->data['pembuat']}}
                                   </span>
-                                  <p class="ibyb7 daned dark:text-neutral-500">
-                                    mentioned you in a vnh1v
-                                  </p>
-                                  <div class="huvyz">
-                                    <blockquote class="sukbe ttubf m457n ibyb7 daned dark:border-neutral-700 dark:text-neutral-400">
-                                      Nice work, love! You really nailed it. Keep it up!
-                                    </blockquote>
-                                  </div>
+                                  {{$notification->data['data']}}
+                                  
                                 </div>
-          
+                                
                                 <div>
-                                  <div class="r5huv fyyx9 vyd5t iykm3 r38dj">
-                                 
-                                  </div>
+                                    <div class="r5huv fyyx9 vyd5t iykm3 r38dj">
+                                        
+                                    </div>
                                 </div>
                             </a>
-                            <a class="relative group q0mum flex  rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
-                                <div class="relative ylm2u  w-14 m-5">
-                                    <img class="ylm2u d2d9z drtn2 rounded-full" src="https://images.unsplash.com/photo-1659482634023-2c4fda99ac0c?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=320&amp;h=320&amp;q=80" alt="Avatar">
-                                    <span class="absolute jdy7d -start-3 jzf4d riqyd drtn2 dark:bg-blue-500"></span>
-                                  </div>
-                                <div class="v6j3t">
-                                  <p class="zlgt1 daned dark:text-neutral-500">
-                                    3 days ago
-                                  </p>
-          
-                                  <span class="block ibyb7 mwwf4 i6scm dark:text-neutral-300">
-                                    Clara Becker
-                                  </span>
-                                  <p class="ibyb7 daned dark:text-neutral-500">
-                                    mentioned you in a vnh1v
-                                  </p>
-                                  <div class="huvyz">
-                                    <blockquote class="sukbe ttubf m457n ibyb7 daned dark:border-neutral-700 dark:text-neutral-400">
-                                      Nice work, love! You really nailed it. Keep it up!
-                                    </blockquote>
-                                  </div>
-                                </div>
-          
-                                <div>
-                                  <div class="r5huv fyyx9 vyd5t iykm3 r38dj">
-                                 
-                                  </div>
-                                </div>
-                            </a>
-                            <a class="relative group q0mum flex  rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
-                                <div class="relative ylm2u  w-14 m-5">
-                                    <img class="ylm2u d2d9z drtn2 rounded-full" src="https://images.unsplash.com/photo-1659482634023-2c4fda99ac0c?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=320&amp;h=320&amp;q=80" alt="Avatar">
-                                    <span class="absolute jdy7d -start-3 jzf4d riqyd drtn2 dark:bg-blue-500"></span>
-                                  </div>
-                                <div class="v6j3t">
-                                  <p class="zlgt1 daned dark:text-neutral-500">
-                                    3 days ago
-                                  </p>
-          
-                                  <span class="block ibyb7 mwwf4 i6scm dark:text-neutral-300">
-                                    Clara Becker
-                                  </span>
-                                  <p class="ibyb7 daned dark:text-neutral-500">
-                                    mentioned you in a vnh1v
-                                  </p>
-                                  <div class="huvyz">
-                                    <blockquote class="sukbe ttubf m457n ibyb7 daned dark:border-neutral-700 dark:text-neutral-400">
-                                      Nice work, love! You really nailed it. Keep it up!
-                                    </blockquote>
-                                  </div>
-                                </div>
-          
-                                <div>
-                                  <div class="r5huv fyyx9 vyd5t iykm3 r38dj">
-                                 
-                                  </div>
-                                </div>
-                            </a>
-                            <a class="relative group q0mum flex  rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
-                                <div class="relative ylm2u  w-14 m-5">
-                                    <img class="ylm2u d2d9z drtn2 rounded-full" src="https://images.unsplash.com/photo-1659482634023-2c4fda99ac0c?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=320&amp;h=320&amp;q=80" alt="Avatar">
-                                    <span class="absolute jdy7d -start-3 jzf4d riqyd drtn2 dark:bg-blue-500"></span>
-                                  </div>
-                                <div class="v6j3t">
-                                  <p class="zlgt1 daned dark:text-neutral-500">
-                                    3 days ago
-                                  </p>
-          
-                                  <span class="block ibyb7 mwwf4 i6scm dark:text-neutral-300">
-                                    Clara Becker
-                                  </span>
-                                  <p class="ibyb7 daned dark:text-neutral-500">
-                                    mentioned you in a vnh1v
-                                  </p>
-                                  <div class="huvyz">
-                                    <blockquote class="sukbe ttubf m457n ibyb7 daned dark:border-neutral-700 dark:text-neutral-400">
-                                      Nice work, love! You really nailed it. Keep it up!
-                                    </blockquote>
-                                  </div>
-                                </div>
-          
-                                <div>
-                                  <div class="r5huv fyyx9 vyd5t iykm3 r38dj">
-                                 
-                                  </div>
-                                </div>
-                            </a>
-                            <a class="relative group q0mum flex  rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
-                                <div class="relative ylm2u  w-14 m-5">
-                                    <img class="ylm2u d2d9z drtn2 rounded-full" src="https://images.unsplash.com/photo-1659482634023-2c4fda99ac0c?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=320&amp;h=320&amp;q=80" alt="Avatar">
-                                    <span class="absolute jdy7d -start-3 jzf4d riqyd drtn2 dark:bg-blue-500"></span>
-                                  </div>
-                                <div class="v6j3t">
-                                  <p class="zlgt1 daned dark:text-neutral-500">
-                                    3 days ago
-                                  </p>
-          
-                                  <span class="block ibyb7 mwwf4 i6scm dark:text-neutral-300">
-                                    Clara Becker
-                                  </span>
-                                  <p class="ibyb7 daned dark:text-neutral-500">
-                                    mentioned you in a vnh1v
-                                  </p>
-                                  <div class="huvyz">
-                                    <blockquote class="sukbe ttubf m457n ibyb7 daned dark:border-neutral-700 dark:text-neutral-400">
-                                      Nice work, love! You really nailed it. Keep it up!
-                                    </blockquote>
-                                  </div>
-                                </div>
-          
-                                <div>
-                                  <div class="r5huv fyyx9 vyd5t iykm3 r38dj">
-                                 
-                                  </div>
-                                </div>
-                            </a>
-                            <a class="relative group q0mum flex  rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
-                                <div class="relative ylm2u  w-14 m-5">
-                                    <img class="ylm2u d2d9z drtn2 rounded-full" src="https://images.unsplash.com/photo-1659482634023-2c4fda99ac0c?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=320&amp;h=320&amp;q=80" alt="Avatar">
-                                    <span class="absolute jdy7d -start-3 jzf4d riqyd drtn2 dark:bg-blue-500"></span>
-                                  </div>
-                                <div class="v6j3t">
-                                  <p class="zlgt1 daned dark:text-neutral-500">
-                                    3 days ago
-                                  </p>
-          
-                                  <span class="block ibyb7 mwwf4 i6scm dark:text-neutral-300">
-                                    Clara Becker
-                                  </span>
-                                  <p class="ibyb7 daned dark:text-neutral-500">
-                                    mentioned you in a vnh1v
-                                  </p>
-                                  <div class="huvyz">
-                                    <blockquote class="sukbe ttubf m457n ibyb7 daned dark:border-neutral-700 dark:text-neutral-400">
-                                      Nice work, love! You really nailed it. Keep it up!
-                                    </blockquote>
-                                  </div>
-                                </div>
-          
-                                <div>
-                                  <div class="r5huv fyyx9 vyd5t iykm3 r38dj">
-                                 
-                                  </div>
-                                </div>
-                            </a>
+                            @endforeach
+                            
                           </div>
                           <div class="py-2 first:pt-0 last:pb-0">
-                          
-                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100" href="#">
+                            @if (auth()->user()->unreadNotifications)
+                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100" href="{{route('mark-as-read')}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
                                   </svg>
                                   
                               Mark all as read
                             </a>
+                            @endif
                           </div>
                         </div>
                     </div>

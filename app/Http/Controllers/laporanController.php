@@ -65,6 +65,7 @@ class laporanController extends Controller
         $request->file('foto')->storeAs('post-image', $filename);
 
         $laporan = laporan::create($validate);
+        $laporan['pembuat'] = Auth::user()->name;
         // toastr()->success('Laporan Diterima, Kami akan segera menindak laporan.');
         // return redirect('/')->with('addLaporan', 'Berhasil Menambahkan Laporan');
 

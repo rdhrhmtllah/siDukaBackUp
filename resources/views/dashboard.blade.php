@@ -44,7 +44,7 @@
                                     Total users
                                 </p>
                                 <h3 class="mt-1 text-xl sm:text-2xl font-semibold text-blue-600">
-                                    72,540
+                                    {{$totalUser}}
                                 </h3>
                                 <div class="mt-1 flex justify-between items-center">
                                     <p class="text-sm text-gray-500">
@@ -82,10 +82,10 @@
 
                             <div class="grow">
                                 <p class="text-xs uppercase tracking-wide font-medium text-gray-800">
-                                    Sessions
+                                    Total Laporan Darurat
                                 </p>
                                 <h3 class="mt-1 text-xl sm:text-2xl font-semibold text-blue-600">
-                                    29.4%
+                                    {{$hitungDarurat}}
                                 </h3>
                                 <div class="mt-1 flex justify-between items-center">
                                     <p class="text-sm text-gray-500">
@@ -121,10 +121,10 @@
 
                             <div class="grow">
                                 <p class="text-xs uppercase tracking-wide font-medium text-gray-800">
-                                    Avg. Click Rate
+                                    Total Laporan Normal
                                 </p>
                                 <h3 class="mt-1 text-xl sm:text-2xl font-semibold text-blue-600">
-                                    56.8%
+                                    {{$hitungNormal}}
                                 </h3>
                                 <div class="mt-1 flex justify-between items-center">
                                     <p class="text-sm text-gray-500">
@@ -163,10 +163,10 @@
 
                             <div class="grow">
                                 <p class="text-xs uppercase tracking-wide font-medium text-gray-800">
-                                    Pageviews
+                                    Total Berita
                                 </p>
                                 <h3 class="mt-1 text-xl sm:text-2xl font-semibold text-blue-600">
-                                    92,913
+                                    {{$totalBerita}}
                                 </h3>
                                 <div class="mt-1 flex justify-between items-center">
                                     <p class="text-sm text-gray-500">

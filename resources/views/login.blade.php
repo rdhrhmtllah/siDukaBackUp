@@ -18,9 +18,11 @@
 </head>
 
 <body>
+    <x-navbar></x-navbar>
 
-    <div class="h-screen flex items-center justify-center">
-        <div class="mt-7  md:w-[28%] md:p-0 p-3 bg-white border border-gray-200 rounded-xl shadow-sm">
+
+    <div class=" md:mt-[30%] lg:mt-[8%] mt-[65%] flex items-center justify-center">
+        <div class="mx-5 mt-[-30%] lg:mt-0 md:mt-[-10%]  md:w-[68%] lg:w-[45%] xl:w-[25%] w-[85%] md:p-0 p-3 bg-white border border-gray-200 rounded-xl shadow-sm">
             <div class="p-4 sm:p-7">
                 <div class="text-center">
                     <h1 class="block text-2xl font-bold text-gray-800">Log in</h1>

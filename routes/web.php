@@ -12,7 +12,7 @@ use App\Http\Controllers\laporanController;
 use App\Http\Controllers\manageBeritaController;
 use App\Http\Controllers\penggunaController;
 use App\Http\Controllers\registerController;
-
+use App\Models\User;
 
 Route::get('/', function () {
     $posts = Post::latest()->take(4)->get();
@@ -23,7 +23,9 @@ Route::get('/dashboard', function () {
     $darurat = laporan::latest()->where('urgensi', '=', 1)->where('keterangan', '=', 0)->count();
     $normal = laporan::latest()->where('urgensi', '=', 0)->where('keterangan', '=', 0)->count();
     $selesai = laporan::latest()->where('keterangan', '=', 1)->count();
-    return view('dashboard', ['hitungDarurat' => $darurat, 'hitungNormal' => $normal, 'hitungSelesai' => $selesai]);
+    $totalBerita = Post::all()->count();
+    $totalUser = User::all()->count();
+    return view('dashboard', ['hitungDarurat' => $darurat, 'hitungNormal' => $normal, 'hitungSelesai' => $selesai, 'totalUser'=> $totalUser, 'totalBerita'=> $totalBerita]);
 })->middleware('admin');
 
 Route::get('/home/formLaporan', function () {

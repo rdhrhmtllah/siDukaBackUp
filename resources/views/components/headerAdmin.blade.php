@@ -105,7 +105,7 @@
                           <div class="py-2 first:pt-0 last:pb-0 overflow-y-scroll  max-h-96  ">
                               {{-- content notifikasi --}}
                               @foreach (auth()->user()->unreadNotifications as $notification)
-                              <a class="relative me-3 group q0mum flex  rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+                              <a href="{{route('mark-as-read')}}" class="relative me-3 group q0mum flex  rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
                                 <div class="relative ylm2u  w-14 m-5">
                                     <img class="ylm2u d2d9z drtn2 rounded-full" src="{{ asset('/storage/post-image/' . $notification->data['foto']) }}" alt="Avatar">
                                     <span class="absolute jdy7d -start-3 jzf4d riqyd drtn2 dark:bg-blue-500"></span>
@@ -197,7 +197,7 @@
                             role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-account">
                             <div class="py-3 px-5 bg-gray-100 rounded-t-lg">
                                 <p class="text-sm text-gray-500">Signed in as</p>
-                                <p class="text-sm font-medium text-gray-800">james@site.com</p>
+                                <p class="text-sm font-medium text-gray-800">{{Auth()->user()->name}}</p>
                             </div>
                             <div class="p-1.5 space-y-0.5">
                                 <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
@@ -232,18 +232,12 @@
                                     </svg>
                                     Downloads
                                 </a>
-                                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                                    href="#">
-                                    <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
-                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                                        <circle cx="9" cy="7" r="4" />
-                                        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                                    </svg>
-                                    Team Account
-                                </a>
+                               <form action="/logout" method="POST">
+                         @csrf
+                         <button
+                             class="flex w-full items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">Log
+                             Out</button>
+                     </form>
                             </div>
                         </div>
                     </div>

@@ -9,9 +9,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Post extends Model
 {
     use HasFactory, Sluggable;
-    protected $fillable = [
-        'slug', 'title', 'status', 'author_id', 'isi', 'foto'
-    ];
+    protected $guarded = ['id'];
+
     protected $with = ['author'];
     public function author(): BelongsTo
     {

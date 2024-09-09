@@ -12,8 +12,11 @@
 </head>
 
 <body>
-    <div class="container h-screen flex items-center justify-center">
-        <div class="mt-7  md:w-[48%] md:p-0 p-3 bg-white border border-gray-200 rounded-xl shadow-sm">
+
+    <x-navbar></x-navbar>
+
+    <div class=" md:mt-[30%] lg:mt-[8%] mt-[45%] flex items-center justify-center">
+        <div class="mx-5 mt-[-30%] lg:mt-0 md:mt-[-10%]  md:w-[68%] lg:w-[48%] md:p-0 p-3 bg-white border border-gray-200 rounded-xl shadow-sm">
             <div class="p-4 sm:p-7">
                 <div class="text-center">
                     <h1 class="block text-2xl font-bold text-gray-800">Laporkan.</h1>
@@ -154,7 +157,7 @@
                             <input type="hidden" name="urgensi" value="0">
                             <div class="col-span-3">
                                 <!-- Form Group -->
-                                <div>
+                                <div class="mb-4">
                                     <label for="kronologi" class="block text-sm mb-2">Kronologi Lengkap</label>
                                     <div class="relative  border rounded-lg">
                                         <input type="text" id="kronologi" name="kronologi"

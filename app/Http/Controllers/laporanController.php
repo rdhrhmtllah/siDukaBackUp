@@ -65,13 +65,13 @@ class laporanController extends Controller
         $request->file('foto')->storeAs('post-image', $filename);
 
         $laporan = laporan::create($validate);
-        $laporan['pembuat'] = Auth::user()->name;
         // toastr()->success('Laporan Diterima, Kami akan segera menindak laporan.');
         // return redirect('/')->with('addLaporan', 'Berhasil Menambahkan Laporan');
-
+        
         if($laporan){
+            $laporan['pembuat'] = Auth::user()->name;
          
-            $adminUsers = User::where('is_admin', '1')->get();
+            $adminUsers = User::where('is_admin', 1)->get();
             foreach ($adminUsers as $admin) {
                 $admin->notify(new notifikasiLaporan($laporan));
             }

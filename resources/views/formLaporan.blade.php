@@ -85,7 +85,7 @@
                                 <div>
                                     <label for="nohp" class="block text-sm mb-2">No.hp</label>
                                     <div class="relative  border rounded-lg  @error('nohp') border-red-500 @enderror">
-                                        <input type="number" id="nohp" name="nohp" value="{{ old('nohp') }}"
+                                        <input type="tel" id="nohp" name="nohp" value="{{ old('nohp') }}"
                                             class="py-3
                                             px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500
                                             focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"

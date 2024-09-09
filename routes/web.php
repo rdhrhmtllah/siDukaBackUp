@@ -28,7 +28,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/home/formLaporan', function () {
     return view('formLaporan');
-});
+})->middleware('auth');
 
 Route::get('/userProfile', function () {
     return view('userProfile');

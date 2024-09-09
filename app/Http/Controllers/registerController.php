@@ -49,26 +49,13 @@ class registerController extends Controller
        
         // dd("Email Berhasil dikirim.");
         // session()->flash('success','Pengguna Berhasil Ditambahkan!, Silahkan Login');
-
-        if($user){
-         
-            $adminUsers = User::where('is_admin', '1')->get();
-            foreach ($adminUsers as $admin) {
-                $admin->notify(new notifikasiLaporan($user));
-            }
-            toastr()->success('Sukses Mendaftar, silahkan login!');
+        toastr()->success('Sukses Mendaftar, silahkan login!');
             return redirect('/verify');
-        }else{
-            toastr()->success('Gagal Mendaftar, Kesalahan Mendaftar!');
-            return back();
-        }
+
+       
     }
 
-    public function markAsRead()
-    {
-          Auth::user()->unreadNotifications->markAsRead();
-          return redirect()->back();
-     }
+ 
 
     public function verify(Request $request, User $user){
         $validatedData = $request->validate([

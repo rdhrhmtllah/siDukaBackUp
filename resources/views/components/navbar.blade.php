@@ -87,7 +87,7 @@
          <div id="navbar-collapse-with-animation"
              class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block md:w-auto md:basis-auto md:order-2 md:col-span-6">
              <div
-                 class="font-bold flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:justify-center md:items-center md:gap-y-0 md:gap-x-7 md:mt-0">
+                 class=" flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:justify-center md:items-center md:gap-y-0 md:gap-x-7 md:mt-0">
                  <div>
                      <x-nav-link href="/" :active="request()->is('/')">HOME</x-nav-link>
                  </div>
@@ -97,9 +97,7 @@
                  <div>
                      <x-nav-link href="/about" :active="request()->is('about')">ABOUT</x-nav-link>
                  </div>
-                 <div>
-                     <x-nav-link href="#" :active="request()->is('#')">CONTACT</x-nav-link>
-                 </div>
+                
              </div>
          </div>
          <!-- End Collapse -->

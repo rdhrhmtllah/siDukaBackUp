@@ -81,7 +81,10 @@
       
     </div>
     <!-- End Grid -->
-    {{ $posts->links() }}
+    <div class="my-4">
+
+      {{ $posts->links() }}
+    </div>
   </div>
   <!-- End Card Blog -->
    

@@ -62,7 +62,7 @@ class laporanController extends Controller
         $file_extension = str_replace(' ', '_', $file->getClientOriginalName());
         $filename = $file_extension;
         $validate['foto'] = $filename;
-        $request->file('foto')->storeAs('post-image', $filename);
+        $request->file('foto')->storeAs('post-image/laporan', $filename);
 
         $laporan = laporan::create($validate);
         // toastr()->success('Laporan Diterima, Kami akan segera menindak laporan.');
@@ -147,5 +147,17 @@ class laporanController extends Controller
 
         toastr()->success("Data Telah Dihapus");
         return back();
+    }
+
+    public function download(Laporan $laporan){
+        // dd(asset("/storage/post-image/laporan/$laporan->foto"));
+        $filePath = storage_path("/storage/post-image/laporan/$laporan->foto");
+
+        if (file_exists($filePath)) {
+            return back()->download(asset("/storage/post-image/laporan/$laporan->foto"));
+        } else {
+            // toastr()->error("File Tidak Tersedia");
+            abort(404, 'File not found');
+        }
     }
 }

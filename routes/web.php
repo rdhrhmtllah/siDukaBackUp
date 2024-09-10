@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\kotakSaranController;
 use App\Models\Post;
 use App\Mail\SendEmail;
 use App\Models\laporan;
@@ -76,6 +77,7 @@ Route::post('/darurat', [LocController::class, 'index'])->middleware('auth');
 Route::post('/laporkan', [laporanController::class, 'store']);
 
 Route::get('/adminNormal', [laporanController::class, 'index'])->middleware('admin');
+Route::get('/adminNormal/download/{laporan:id}', [laporanController::class, 'download'])->middleware('admin');
 Route::post('/adminNormal/{laporan:id}/update', [laporanController::class, 'update']);
 Route::post('/adminNormal/{laporan:id}', [laporanController::class, 'destroy']);
 
@@ -102,5 +104,8 @@ Route::get('/manageBerita', [manageBeritaController::class,'index'])->middleware
 Route::post('/manageBerita/{post:slug}/show', [manageBeritaController::class,'show'])->middleware('admin');
 Route::post('/manageBerita/{post:slug}', [manageBeritaController::class,'destroy'])->middleware('admin');
 Route::post('/addBerita', [manageBeritaController::class,'store'])->middleware('admin');
+Route::post('/kotakSaran', [kotakSaranController::class,'store']);
+Route::get('/manageKotakSaran', [kotakSaranController::class,'index'])->middleware('admin');
+Route::post('/manageKotakSaran/{kotakSaran:id}', [kotakSaranController::class,'destroy'])->middleware('admin');
 
 Route::get('/mark-as-read', [laporanController::class,'markAsRead'])->name('mark-as-read');

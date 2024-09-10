@@ -22,9 +22,7 @@
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
                                     Alamat
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
-                                    Verfikasi Akun
-                                </th>
+                             
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
                                     Dibuat
                                 </th>
@@ -48,9 +46,7 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                                         {{ $data->alamat }}
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
-                                        {{ $data->nohp_verified_at }}
-                                    </td>
+                                  
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                                         {{ $data->updated_at }}
                                     </td>

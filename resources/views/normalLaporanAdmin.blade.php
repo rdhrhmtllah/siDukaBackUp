@@ -77,9 +77,9 @@
                                             <img aria-haspopup="dialog" aria-expanded="false"
                                                 aria-controls="hs-subscription-with-image"
                                                 data-hs-overlay="#hs-subscription-with-image"
-                                                onclick="modalImg('{{ asset('/storage/post-image/' . $laporan->foto) }}')"
+                                                onclick="modalImg('{{ asset('/storage/post-image/laporan/' . $laporan->foto) }}', {{$laporan->id}})"
                                                 id="myimg"
-                                                src="{{ asset('/storage/post-image/' . $laporan->foto) }}"
+                                                src="{{ asset('/storage/post-image/laporan/' . $laporan->foto) }}"
                                                 class="w-[100px] h-[100px] rounded" alt="">
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
@@ -154,6 +154,11 @@
 
 
                     <div class="mt-1 flex justify-center gap-x-4">
+                        <a id="link" 
+                            class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-green-600 text-white hover:bg-green-700 focus:outline-none focus:bg-green-700 disabled:opacity-50 disabled:pointer-events-none"
+                            >
+                            Download
+                        </a >
                         <button type="button"
                             class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
                             data-hs-overlay="#hs-subscription-with-image">
@@ -168,9 +173,10 @@
 
         <script src="./node_modules/preline/dist/preline.js"></script>
         <script type="text/javascript">
-            function modalImg(img, cap) {
+            function modalImg(img, id) {
                 // var src = document.getElementById("myimg").src;
                 var imgModal = document.getElementById("img1").src = img;
+                var imgModal = document.getElementById("link").href = "/adminNormal/download/"+ id;
             }
         </script>
 </body>

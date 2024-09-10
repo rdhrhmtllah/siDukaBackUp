@@ -25,7 +25,7 @@
       <!-- Title -->
       <div class="max-w-3xl mb-10 lg:mb-14">
         <h2 class="text-black font-semibold text-2xl md:text-4xl md:leading-tight">KPAD SUMATERA SELATAN.</h2>
-        <p class="mt-1 text-neutral-400">This profound insight guides our comprehensive strategy — from meticulous research and strategic planning to the seamless execution of brand development and website or product deployment.</p>
+        <p class="mt-1 text-neutral-400">KPAD Sumsel merupakan lembaga yang memiliki peran penting dalam mewujudkan perlindungan anak di Sumatera Selatan. Kami bekerja sama dengan berbagai pihak, seperti pemerintah, lembaga swadaya masyarakat, dan masyarakat umum.</p>
       </div>
       <!-- End Title -->
   

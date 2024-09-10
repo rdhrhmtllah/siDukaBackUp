@@ -254,7 +254,7 @@ lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
                        </li>
 
 
-                       <li><a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                       <li><a class="{{ request()->is('manageBerita') ? 'bg-gray-100' : '' }} w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
                                href="/manageBerita">
                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -264,8 +264,8 @@ lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
                                </svg>
                                Berita
                            </a></li>
-                       <li><a class="w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
-                               href="#">
+                       <li><a class="{{ request()->is('manageKotakSaran') ? 'bg-gray-100' : '' }} w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                               href="/manageKotakSaran">
                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

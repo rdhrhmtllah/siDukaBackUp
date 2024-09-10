@@ -151,13 +151,10 @@ class laporanController extends Controller
 
     public function download(Laporan $laporan){
         // dd(asset("/storage/post-image/laporan/$laporan->foto"));
-        $filePath = storage_path("/storage/post-image/laporan/$laporan->foto");
+      
 
-        if (file_exists($filePath)) {
-            return back()->download(asset("/storage/post-image/laporan/$laporan->foto"));
-        } else {
-            // toastr()->error("File Tidak Tersedia");
-            abort(404, 'File not found');
-        }
+        
+       return Laporan::download($laporan->foto);w
     }
+    
 }

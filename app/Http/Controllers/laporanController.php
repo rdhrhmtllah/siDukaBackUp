@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\laporan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Notifications\notifikasiLaporan;
 
 class laporanController extends Controller
@@ -150,11 +152,17 @@ class laporanController extends Controller
     }
 
     public function download(Laporan $laporan){
-        // dd(asset("/storage/post-image/laporan/$laporan->foto"));
+        // dd($laporan);
       
-
+        if (file_exists(filename: "storage/post-image/laporan/$laporan->foto")) {
+          
+            return Storage::download("/post-image/laporan/$laporan->foto");
+            
+         }else{
+            toastr()->error("File Tidak Tersedia");
+            return back();
+         }
         
-       return Laporan::download($laporan->foto);w
     }
     
 }

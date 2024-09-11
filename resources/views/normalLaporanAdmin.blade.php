@@ -175,7 +175,13 @@
         <script type="text/javascript">
             function modalImg(img, id) {
                 // var src = document.getElementById("myimg").src;
-                var imgModal = document.getElementById("img1").src = img;
+                if(img == "C:\Usersdhrh\*"){
+                    
+                    var imgModal = document.getElementById("img1").src = null;
+                }else{
+
+                    var imgModal = document.getElementById("img1").src = img;
+                }
                 var imgModal = document.getElementById("link").href = "/adminNormal/download/"+ id;
             }
         </script>

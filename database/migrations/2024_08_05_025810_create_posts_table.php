@@ -22,6 +22,7 @@ return new class extends Migration
                 indexName: 'posts_author_id'
             );
             $table->text('isi');
+            $table->integer('count')->nullable();
             $table->timestamps();
         });
     }

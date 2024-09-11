@@ -47,6 +47,11 @@ Route::get('/moreberita', function () {
 });
 
 Route::get('/moreberita/{post:slug}', function (Post $post) {
+    $post = Post::findOrFail($post->id);
+
+    $post->update([
+        'count' => $post->count + 1
+    ]);
     return view('isi_berita', ['post' => $post, 'posts' => Post::latest()->skip(1)->take(4)->get()]);
 });
 

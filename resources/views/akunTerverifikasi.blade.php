@@ -1,32 +1,59 @@
 @extends('components/pengguna')
 
 @section('datas')
-    <div class="flex flex-col">
+    <div class="p-4 sm:p-6 space-y-4 sm:space-y-6 ">
         <div class=" overflow-x-auto mb-5">
-            <div class="p-1.5 min-w-full inline-block align-middle">
+            <div class="p-1.5 min-w-full inline-block align-middle mb-3 ">
                 <div class="overflow-hidden">
 
-
-                    <table class="min-w-full">
-                        <thead>
+                    <div class="flex flex-col">
+                        <div class="-m-1.5 overflow-x-auto">
+                          <div class="p-1.5 min-w-full inline-block align-middle">
+                            <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden ">
+                              <!-- Header -->
+                              <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700">
+                                <div>
+                                  <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200">
+                                   Admin
+                                  </h2>
+                               
+                                </div>
+                
+                                <div>
+                                  <div class="inline-flex gap-x-2">
+                                  
+                
+                                    <a aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-modal-signup" data-hs-overlay="#hs-modal-signup" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" >
+                                      <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M5 12h14" />
+                                        <path d="M12 5v14" />
+                                      </svg>
+                                      Add Admin
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                    <table class="min-w-full divide-y divide-gray-200 ">
+                        <thead class="bg-gray-50">
                             <tr>
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
+                                <th scope="col" class="px-6 font-medium py-3 text-start text-xs text-[#1f2937] uppercase">
                                     Nama
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
+                                <th scope="col" class="px-6 font-medium py-3 text-start text-xs text-[#1f2937] uppercase">
                                     Email
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
+                                <th scope="col" class="px-6 font-medium py-3 text-start text-xs text-[#1f2937] uppercase">
                                     No.Hp
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
+                                <th scope="col" class="px-6 font-medium py-3 text-start text-xs text-[#1f2937] uppercase">
                                     Alamat
                                 </th>
                              
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
+                                <th scope="col" class="px-6 font-medium py-3 text-start text-xs text-[#1f2937] uppercase">
                                     Dibuat
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">
+                                <th scope="col" class="px-6 font-medium py-3 text-start text-xs text-[#1f2937] uppercase">
                                     Action
                                 </th>
                             </tr>
@@ -50,7 +77,7 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                                         {{ $data->updated_at }}
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+                                    <td class="px-6 py-4 whitespace-nowrap text-start text-sm font-medium">
                                         <button type="button" aria-haspopup="dialog" aria-expanded="false"
                                             aria-controls="editAdmin{{ $data->id }}"
                                             data-hs-overlay="#editAdmin{{ $data->id }}"
@@ -292,18 +319,20 @@
 
                         </tbody>
                     </table>
-
+                        {{-- footer  --}}
+                        <div class="px-6 py-4 md:grid flex items-center border-t border-gray-200">
+                      
+        
+                            <div>
+                              
+                                {{ $datas->links() }}
+                            </div>
+                          </div>
+                          {{-- akhir footer --}}
                 </div>
             </div>
         </div>
-        <span class="mx-3">{{ $datas->links() }}</span>
-        <a aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-modal-signup"
-            data-hs-overlay="#hs-modal-signup">
-            <div
-                class="shadow-lg hover:my-8  duration-100 fixed w-14 h-15 p-4 bg-white text-black flex justify-center items-center rounded-full bottom-0 right-0 m-6 border">
-                +
-            </div>
-        </a>
+    
     </div>
 
     {{-- modal plus --}}
@@ -481,7 +510,7 @@
                             <div class="col-span-3">
 
                             </div>
-                            <div class="col-span-3">
+                            <div class="col-span-3 my-3 md:my-0">
                                 <button type="submit"
                                     class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Submit</button>
 

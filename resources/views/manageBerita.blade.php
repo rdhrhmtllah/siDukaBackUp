@@ -11,7 +11,7 @@
     <title>Home</title>
 </head>
 
-<body>
+<body class="bg-[#f9fafb]">
     {{-- header --}}
     <x-headerAdmin></x-headerAdmin>
 
@@ -21,14 +21,32 @@
 
     <!-- Content -->
     <div class="w-full lg:ps-64 mb-20">
-        <div class="flex flex-col">
+        <div class="p-4 sm:p-6 space-y-4 sm:space-y-6 ">
             <div class=" overflow-x-auto mb-5">
-                <div class=" min-w-full inline-block align-middle">
+                <div class="p-1.5 min-w-full inline-block align-middle mb-3 ">
                     <div class="overflow-hidden">
-
-
-                        <table class="w-6/12 table-auto">
-                            <thead>
+        
+                        <div class="flex flex-col">
+                            <div class="-m-1.5 overflow-x-auto">
+                              <div class="p-1.5 min-w-full inline-block align-middle">
+                                <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden ">
+                                  <!-- Header -->
+                                  <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700">
+                                    <div>
+                                      <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200">
+                                       Manage Berita
+                                      </h2>
+                                   
+                                    </div>
+                    
+                                    <div>
+                                     
+                                    </div>
+                                  </div>
+        
+        
+                                  <table class="min-w-full divide-y divide-gray-200 ">
+                                    <thead class="bg-gray-50">
                                 <tr>
                                     <th scope="col"
                                         class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Penerbit
@@ -121,11 +139,21 @@
 
                             </tbody>
                         </table>
+                        {{-- footer  --}}
+                    <div class="px-6 py-4 md:grid flex items-center border-t border-gray-200">
+                      
+        
+                        <div>
+                          
+                            {{ $datas->links() }}
+                        </div>
+                      </div>
+                      {{-- akhir footer --}}
 
                     </div>
                 </div>
             </div>
-            <span class="mx-3 mb-5">{{ $datas->links() }}</span>
+           
             <a aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-modal-signup"
             data-hs-overlay="#hs-modal-signup">
             <div

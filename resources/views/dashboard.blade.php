@@ -8,10 +8,31 @@
     <link rel="stylesheet" href="/css/style.css">
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="./node_modules/apexcharts/dist/apexcharts.css">
     <title>Home</title>
-</head>
+    
+      <!-- Apexcharts -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts/dist/apexcharts.min.css">
+  <style type="text/css">
+    .apexcharts-tooltip.apexcharts-theme-light
+    {
+      background-color: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+  </style>
 
-<body>
+  <!-- CSS Preline -->
+  <link rel="stylesheet" href="https://preline.co/assets/css/main.min.css">
+    
+</head>
+<body class="bg-[#f9fafb]">
+    
     {{-- header --}}
     <x-headerAdmin></x-headerAdmin>
 
@@ -19,16 +40,16 @@
     <x-sidebar><x-slot:hitungDarurat>{{ $hitungDarurat }}</x-slot:hitungDarurat><x-slot:hitungNormal>{{ $hitungNormal }}</x-slot:hitungNormal><x-slot:hitungSelesai>{{ $hitungSelesai }}</x-slot:hitungSelesai></x-sidebar>
 
 
-    <!-- Content -->
     <div class="w-full lg:ps-64">
-        <div class="p-4 sm:p-6 space-y-4 sm:space-y-6">
+      <!-- bar Atas -->
+        <div class="p-4 space-y-4 sm:space-y-6">
             <!-- Card Section -->
-            <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+            <div class=" px-4 sm:px-6 lg:px-8  mx-auto">
                 <!-- Grid -->
                 <div class="grid md:grid-cols-4 border border-gray-200 shadow-sm rounded-xl overflow-hidden">
                     <!-- Card -->
                     <a class="block p-4 md:p-5 relative bg-white hover:bg-gray-50 focus:outline-none focus:bg-gray-50 before:absolute before:top-0 before:start-0 before:w-full before:h-px md:before:w-px md:before:h-full before:bg-gray-200 before:first:bg-transparent"
-                        href="#">
+                        href="/akunTerverifikasiUser">
                         <div class="flex md:flex flex-col lg:flex-row gap-y-3 gap-x-5">
                             <svg class="shrink-0 size-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24"
                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -40,28 +61,21 @@
                             </svg>
 
                             <div class="grow">
-                                <p class="text-xs uppercase tracking-wide font-medium text-gray-800">
+                              <div class="p-4 md:p-5">
+                                <div class="flex items-center gap-x-2">
+                                  <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
                                     Total users
-                                </p>
-                                <h3 class="mt-1 text-xl sm:text-2xl font-semibold text-blue-600">
-                                    {{$totalUser}}
-                                </h3>
-                                <div class="mt-1 flex justify-between items-center">
-                                    <p class="text-sm text-gray-500">
-                                        from <span class="font-semibold text-gray-800">70,104</span>
-                                    </p>
-                                    <span
-                                        class="ms-1 inline-flex items-center gap-1.5 py-1 px-2 rounded-md text-xs font-medium bg-gray-200 text-gray-800">
-                                        <svg class="inline-block size-3 self-center" xmlns="http://www.w3.org/2000/svg"
-                                            width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                            <path
-                                                d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
-                                        </svg>
-                                        <span class="inline-block">
-                                            12.5%
-                                        </span>
-                                    </span>
+                                  </p>
+                              
                                 </div>
+                    
+                                <div class="mt-1 flex items-center gap-x-2">
+                                  <h3 class="text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200">
+                                  {{$totalUser}}
+                                  </h3>
+                                 
+                                </div>
+                              </div>
                             </div>
                         </div>
                     </a>
@@ -69,7 +83,7 @@
 
                     <!-- Card -->
                     <a class="block p-4 md:p-5 relative bg-white hover:bg-gray-50 focus:outline-none focus:bg-gray-50 before:absolute before:top-0 before:start-0 before:w-full before:h-px md:before:w-px md:before:h-full before:bg-gray-200 before:first:bg-transparent"
-                        href="#">
+                        href="/adminDarurat">
                         <div class="flex md:flex flex-col lg:flex-row gap-y-3 gap-x-5">
                             <svg class="shrink-0 size-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24"
                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -81,28 +95,21 @@
                             </svg>
 
                             <div class="grow">
-                                <p class="text-xs uppercase tracking-wide font-medium text-gray-800">
+                              <div class="p-4 md:p-5">
+                                <div class="flex items-center gap-x-2">
+                                  <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
                                     Total Laporan Darurat
-                                </p>
-                                <h3 class="mt-1 text-xl sm:text-2xl font-semibold text-blue-600">
-                                    {{$hitungDarurat}}
-                                </h3>
-                                <div class="mt-1 flex justify-between items-center">
-                                    <p class="text-sm text-gray-500">
-                                        from <span class="font-semibold text-gray-800">29.1%</span>
-                                    </p>
-                                    <span
-                                        class="ms-1 inline-flex items-center gap-1.5 py-1 px-2 rounded-md text-xs font-medium bg-gray-200 text-gray-800">
-                                        <svg class="inline-block size-3 self-center" xmlns="http://www.w3.org/2000/svg"
-                                            width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                            <path
-                                                d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
-                                        </svg>
-                                        <span class="inline-block">
-                                            1.7%
-                                        </span>
-                                    </span>
+                                  </p>
+                              
                                 </div>
+                    
+                                <div class="mt-1 flex items-center gap-x-2">
+                                  <h3 class="text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200">
+                                  {{$hitungDarurat}}
+                                  </h3>
+                                 
+                                </div>
+                              </div>
                             </div>
                         </div>
                     </a>
@@ -110,7 +117,7 @@
 
                     <!-- Card -->
                     <a class="block p-4 md:p-5 relative bg-white hover:bg-gray-50 focus:outline-none focus:bg-gray-50 before:absolute before:top-0 before:start-0 before:w-full before:h-px md:before:w-px md:before:h-full before:bg-gray-200 before:first:bg-transparent"
-                        href="#">
+                        href="/adminNormal">
                         <div class="flex md:flex flex-col lg:flex-row gap-y-3 gap-x-5">
                             <svg class="shrink-0 size-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24"
                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -120,28 +127,21 @@
                             </svg>
 
                             <div class="grow">
-                                <p class="text-xs uppercase tracking-wide font-medium text-gray-800">
+                              <div class="p-4 md:p-5">
+                                <div class="flex items-center gap-x-2">
+                                  <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
                                     Total Laporan Normal
-                                </p>
-                                <h3 class="mt-1 text-xl sm:text-2xl font-semibold text-blue-600">
-                                    {{$hitungNormal}}
-                                </h3>
-                                <div class="mt-1 flex justify-between items-center">
-                                    <p class="text-sm text-gray-500">
-                                        from <span class="font-semibold text-gray-800">61.2%</span>
-                                    </p>
-                                    <span
-                                        class="ms-1 inline-flex items-center gap-1.5 py-1 px-2 rounded-md text-xs font-medium bg-gray-200 text-gray-800">
-                                        <svg class="inline-block size-3 self-center" xmlns="http://www.w3.org/2000/svg"
-                                            width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                            <path
-                                                d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                                        </svg>
-                                        <span class="inline-block">
-                                            4.4%
-                                        </span>
-                                    </span>
+                                  </p>
+                              
                                 </div>
+                    
+                                <div class="mt-1 flex items-center gap-x-2">
+                                  <h3 class="text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200">
+                                  {{$hitungNormal}}
+                                  </h3>
+                                 
+                                </div>
+                              </div>
                             </div>
                         </div>
                     </a>
@@ -149,7 +149,7 @@
 
                     <!-- Card -->
                     <a class="block p-4 md:p-5 relative bg-white hover:bg-gray-50 focus:outline-none focus:bg-gray-50 before:absolute before:top-0 before:start-0 before:w-full before:h-px md:before:w-px md:before:h-full before:bg-gray-200 before:first:bg-transparent"
-                        href="#">
+                        href="/manageBerita">
                         <div class="flex md:flex flex-col lg:flex-row gap-y-3 gap-x-5">
                             <svg class="shrink-0 size-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
                                 width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -162,29 +162,21 @@
                             </svg>
 
                             <div class="grow">
-                                <p class="text-xs uppercase tracking-wide font-medium text-gray-800">
+                              <div class="p-4 md:p-5">
+                                <div class="flex items-center gap-x-2">
+                                  <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-neutral-500">
                                     Total Berita
-                                </p>
-                                <h3 class="mt-1 text-xl sm:text-2xl font-semibold text-blue-600">
-                                    {{$totalBerita}}
-                                </h3>
-                                <div class="mt-1 flex justify-between items-center">
-                                    <p class="text-sm text-gray-500">
-                                        from <span class="font-semibold text-gray-800">94,012</span>
-                                    </p>
-                                    <span
-                                        class="ms-1 inline-flex items-center gap-1.5 py-1 px-2 rounded-md text-xs font-medium bg-gray-200 text-gray-800">
-                                        <svg class="inline-block size-3 self-center"
-                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" viewBox="0 0 16 16">
-                                            <path
-                                                d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                                        </svg>
-                                        <span class="inline-block">
-                                            0.1%
-                                        </span>
-                                    </span>
+                                  </p>
+                              
                                 </div>
+                    
+                                <div class="mt-1 flex items-center gap-x-2">
+                                  <h3 class="text-xl sm:text-2xl font-medium text-gray-800 dark:text-neutral-200">
+                                  {{$totalBerita}}
+                                  </h3>
+                                 
+                                </div>
+                              </div>
                             </div>
                         </div>
                     </a>
@@ -194,10 +186,273 @@
             </div>
             <!-- End Card Section -->
         </div>
-    </div>
-    <!-- End Content -->
+        
+        <!-- End bar Atas -->
 
+
+        <!-- Card -->
+ <!-- Legend Indicator -->
+ <div class="p-4 space-y-4 sm:space-y-6">
+  <div class=" px-4 sm:px-6 lg:px-8  mx-auto">
+    <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden p-4">
+      <div class="inline-flex items-center">
+        <span class="size-2.5 inline-block bg-blue-600 rounded-sm me-2"></span>
+        <span class="text-[13px] text-gray-600 dark:text-neutral-400">
+          Normal
+        </span>
+      </div>
+      <div class="inline-flex items-center">
+        <span class="size-2.5 inline-block bg-purple-600 rounded-sm me-2"></span>
+        <span class="text-[13px] text-gray-600 dark:text-neutral-400">
+          Darurat
+        </span>
+      </div>
+    <!-- End Legend Indicator -->
+
+    <div id="hs-curved-area-charts"></div>
+    </div>
+  </div>
+</div>
+<!-- End Card -->
+    </div>
+
+
+ 
+
+
+<script src="https://preline.co/assets/js/hs-apexcharts-helpers.js"></script>
+
+  <!-- JS Implementing Plugins -->
+
+  <!-- JS PLUGINS -->
+  <!-- Required plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/preline/dist/preline.min.js"></script>
+
+  <!-- Apexcharts -->
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src="https://preline.co/assets/js/hs-apexcharts-helpers.js"></script>
+
+
+  <script>
+    window.addEventListener('load', () => {
+      // Apex Line Chart
+      (function () {
+        buildChart('#hs-curved-area-charts', (mode) => ({
+          chart: {
+            height: 300,
+            type: 'area',
+            toolbar: {
+              show: false
+            },
+            zoom: {
+              enabled: false
+            }
+          },
+          @dd($chartDarurat)
+          series: [
+            {
+              name: 'Normal',
+              data: $chartNormal
+            },
+            {
+              name: 'Darurat',
+              data: $chartDarurat
+            }
+          ],
+          legend: {
+            show: false
+          },
+          dataLabels: {
+            enabled: false
+          },
+          stroke: {
+            curve: 'smooth',
+            width: 2
+          },
+          grid: {
+            strokeDashArray: 2
+          },
+          fill: {
+            type: 'gradient',
+            gradient: {
+              type: 'vertical',
+              shadeIntensity: 1,
+              opacityFrom: 0.1,
+              opacityTo: 0.8
+            }
+          },
+          xaxis: {
+            type: 'category',
+            tickPlacement: 'on',
+            categories: [
+               'Jan',
+              'Feb',
+              'Mar',
+              'Apr',
+              'Mei',
+              'Jun',
+              'Jul',
+              'Agu',
+              'Sep',
+              'Okt',
+              'Nov',
+              'Des'
+            ],
+            axisBorder: {
+              show: false
+            },
+            axisTicks: {
+              show: false
+            },
+            crosshairs: {
+              stroke: {
+                dashArray: 0
+              },
+              dropShadow: {
+                show: false
+              }
+            },
+            tooltip: {
+              enabled: false
+            },
+            labels: {
+              style: {
+                colors: '#9ca3af',
+                fontSize: '13px',
+                fontFamily: 'Inter, ui-sans-serif',
+                fontWeight: 400
+              },
+              
+            }
+          },
+          yaxis: {
+            labels: {
+              align: 'left',
+              minWidth: 0,
+              maxWidth: 140,
+              style: {
+                colors: '#9ca3af',
+                fontSize: '13px',
+                fontFamily: 'Inter, ui-sans-serif',
+                fontWeight: 400
+              },
+              formatter: (value) => value >= 1000 ? `${value / 1000}k` : value
+            }
+          },
+          tooltip: {
+            x: {
+              format: 'MMMM yyyy'
+            },
+            y: {
+              formatter: (value) => `$${value >= 1000 ? `${value / 1000}k` : value}`
+            },
+            custom: function (props) {
+              const { categories } = props.ctx.opts.xaxis;
+              const { dataPointIndex } = props;
+              const title = categories[dataPointIndex].split(' ');
+              const newTitle = `${title[0]} ${title[1]}`;
+  
+              return buildTooltip(props, {
+                title: newTitle,
+                mode,
+                hasTextLabel: true,
+                wrapperExtClasses: 'min-w-28',
+                labelDivider: ':',
+                labelExtClasses: 'ms-2'
+              });
+            }
+          },
+          responsive: [{
+            breakpoint: 568,
+            options: {
+              chart: {
+                height: 300
+              },
+              labels: {
+                style: {
+                  colors: '#9ca3af',
+                  fontSize: '11px',
+                  fontFamily: 'Inter, ui-sans-serif',
+                  fontWeight: 400
+                },
+                offsetX: -2,
+                formatter: (title) => title.slice(0, 3)
+              },
+              yaxis: {
+                labels: {
+                  align: 'left',
+                  minWidth: 0,
+                  maxWidth: 140,
+                  style: {
+                    colors: '#9ca3af',
+                    fontSize: '11px',
+                    fontFamily: 'Inter, ui-sans-serif',
+                    fontWeight: 400
+                  },
+                  formatter: (value) => value >= 1000 ? `${value / 1000}k` : value
+                }
+              },
+            },
+          }]
+        }), {
+          colors: ['#2563eb', '#9333ea'],
+          fill: {
+            gradient: {
+              stops: [0, 90, 100]
+            }
+          },
+          xaxis: {
+            labels: {
+              style: {
+                colors: '#9ca3af'
+              }
+            }
+          },
+          yaxis: {
+            labels: {
+              style: {
+                colors: '#9ca3af'
+              }
+            }
+          },
+          grid: {
+            borderColor: '#e5e7eb'
+          }
+        }, {
+          colors: ['#3b82f6', '#a855f7'],
+          fill: {
+            gradient: {
+              stops: [100, 90, 0]
+            }
+          },
+          xaxis: {
+            labels: {
+              style: {
+                colors: '#a3a3a3',
+              }
+            }
+          },
+          yaxis: {
+            labels: {
+              style: {
+                colors: '#a3a3a3'
+              }
+            }
+          },
+          grid: {
+            borderColor: '#404040'
+          }
+        });
+      })();
+    });
+  </script>
+    
+  
     <script src="./node_modules/preline/dist/preline.js"></script>
+    <script src="./node_modules/lodash/lodash.min.js"></script>
+    <script src="./node_modules/apexcharts/dist/apexcharts.min.js"></script>
 </body>
+
 
 </html>

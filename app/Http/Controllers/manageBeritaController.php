@@ -18,7 +18,7 @@ class manageBeritaController extends Controller
         $darurat = laporan::latest()->where('urgensi', '=', 1)->where('keterangan', '=', 0)->count();
     $normal = laporan::latest()->where('urgensi', '=', 0)->where('keterangan', '=', 0)->count();
     $selesai = laporan::latest()->where('keterangan', '=', 1)->count();
-    $datas = Post::latest()->simplePaginate(8);
+    $datas = Post::latest()->Paginate(8);
     return view('manageBerita', ['datas'=> $datas, 'hitungDarurat' => $darurat, 'hitungNormal' => $normal, 'hitungSelesai' => $selesai]);
     }
 

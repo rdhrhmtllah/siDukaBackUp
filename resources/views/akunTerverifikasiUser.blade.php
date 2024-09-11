@@ -1,14 +1,34 @@
 @extends('components/pengguna')
 
 @section('datas')
-    <div class="flex flex-col">
-        <div class=" overflow-x-auto mb-5">
-            <div class="p-1.5 min-w-full inline-block align-middle">
-                <div class="overflow-hidden">
+<div class="p-4 sm:p-6 space-y-4 sm:space-y-6 ">
+    <div class=" overflow-x-auto mb-5">
+        <div class="p-1.5 min-w-full inline-block align-middle mb-3 ">
+            <div class="overflow-hidden">
+
+                <div class="flex flex-col">
+                    <div class="-m-1.5 overflow-x-auto">
+                      <div class="p-1.5 min-w-full inline-block align-middle">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden ">
+                          <!-- Header -->
+                          <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700">
+                            <div>
+                              <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200">
+                               @if ( request()->is('akunTerverifikasiUser'))
+                                   Pengguna
+                                @else
+                                Pengguna Belum Verifikasi
+                               @endif
+                              </h2>
+                           
+                            </div>
+            
+                         
+                          </div>
 
 
-                    <table class="min-w-full">
-                        <thead>
+                          <table class="min-w-full divide-y divide-gray-200 ">
+                            <thead class="bg-gray-50">
                             <tr>
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
                                     Nama
@@ -28,7 +48,7 @@
                                 <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
                                     Dibuat
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase">
+                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">
                                     Action
                                 </th>
                             </tr>
@@ -54,7 +74,7 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                                         {{ $data->updated_at }}
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+                                    <td class="px-6 py-4 whitespace-nowrap text-start text-sm font-medium">
                                         <button type="button" aria-haspopup="dialog" aria-expanded="false"
                                             aria-controls="editAdmin{{ $data->id }}"
                                             data-hs-overlay="#editAdmin{{ $data->id }}"
@@ -299,10 +319,21 @@
                         </tbody>
                     </table>
 
+                       {{-- footer  --}}
+                       <div class="px-6 py-4 md:grid flex items-center border-t border-gray-200">
+                      
+        
+                        <div>
+                          
+                            {{ $datas->links() }}
+                        </div>
+                      </div>
+                      {{-- akhir footer --}}
+
                 </div>
             </div>
         </div>
-        <span class="mx-3">{{ $datas->links() }}</span>
+       
         
     </div>
 

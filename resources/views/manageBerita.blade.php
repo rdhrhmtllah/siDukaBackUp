@@ -34,8 +34,10 @@
                                         class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Penerbit
                                     </th>
                                     <th scope="col"
+                                        class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Pengunjung
+                                    </th>
+                                    <th scope="col"
                                         class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Judul
-                                        
                                     </th>
                                     <th scope="col"
                                         class="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase">Status
@@ -63,6 +65,13 @@
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                                             {{ $data->author->name }}
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
+                                            @if ($data->count == null)
+                                            0 Views
+                                            @else
+                                            {{ $data->count }} Views
+                                            @endif
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                                             {{ $data->title }}

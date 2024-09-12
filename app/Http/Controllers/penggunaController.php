@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\laporan;
+use App\Models\Post;
 use App\Models\user;
+use App\Models\laporan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -129,6 +130,35 @@ class penggunaController extends Controller
 
         toastr()->success("Pengguna Telah Dihapus");
         return back();
+    }
+
+    public function dashboard(Request $request){
+        if(count($request->all())){
+            $year = $request->year;
+        }else{
+            $year = date('Y');  
+        }
+    // chart darurat
+    // $chartDarurat =[];
+    for($i = 1; $i<= 12; $i++){
+        $chartDarurat []= laporan::latest()->where('urgensi', '=', 1)->whereYear('created_at', $year)->whereMonth('created_at', $i)->count();
+    }
+    // chart Normal
+    // $chartNormal=[];
+    for($i = 1; $i<= 12; $i++){
+        $chartNormal []= laporan::latest()->where('urgensi', '=', 0)->whereYear('created_at', $year)->whereMonth('created_at', $i)->count();
+    }
+
+    // dd($chartNormal);
+    $darurat = laporan::latest()->where('urgensi', '=', 1)->whereMonth('created_at', '9')->get();
+    // dd($darurat);
+
+    $darurat = laporan::latest()->where('urgensi', '=', 1)->where('keterangan', '=', 0)->count();
+    $normal = laporan::latest()->where('urgensi', '=', 0)->where('keterangan', '=', 0)->count();
+    $selesai = laporan::latest()->where('keterangan', '=', 1)->count();
+    $totalBerita = Post::all()->count();
+    $totalUser = User::all()->count();
+    return view('dashboard', ['hitungDarurat' => $darurat, 'hitungNormal' => $normal, 'hitungSelesai' => $selesai, 'totalUser'=> $totalUser, 'totalBerita'=> $totalBerita, 'chartNormal' => implode(', ',$chartNormal),'chartDarurat'=> implode(', ',$chartDarurat), 'yearSelect' => $year]);
     }
     
 }

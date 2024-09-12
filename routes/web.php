@@ -20,30 +20,8 @@ Route::get('/', function () {
     return view('home', ['posts' => $posts]);
 });
 
-Route::get('/dashboard', function () {
-    $year = date('Y');
-    // chart darurat
-    $chartDarurat =[];
-    for($i = 1; $i<= 12; $i++){
-        $chartDarurat = laporan::latest()->where('urgensi', '=', 1)->whereYear('created_at', $year)->whereMonth('created_at', $i)->count();
-    }
-    // chart Normal
-    $chartNormal=[];
-    for($i = 1; $i<= 12; $i++){
-        $chartNormal = laporan::latest()->where('urgensi', '=', 0)->whereYear('created_at', $year)->whereMonth('created_at', $i)->count();
-    }
-
-    // dd($chartNormal);
-    $darurat = laporan::latest()->where('urgensi', '=', 1)->whereMonth('created_at', '9')->get();
-    // dd($darurat);
-
-    $darurat = laporan::latest()->where('urgensi', '=', 1)->where('keterangan', '=', 0)->count();
-    $normal = laporan::latest()->where('urgensi', '=', 0)->where('keterangan', '=', 0)->count();
-    $selesai = laporan::latest()->where('keterangan', '=', 1)->count();
-    $totalBerita = Post::all()->count();
-    $totalUser = User::all()->count();
-    return view('dashboard', ['hitungDarurat' => $darurat, 'hitungNormal' => $normal, 'hitungSelesai' => $selesai, 'totalUser'=> $totalUser, 'totalBerita'=> $totalBerita, 'chartNormal' => $chartNormal,'chartDarurat'=> $chartDarurat]);
-})->middleware('admin');
+Route::get('/dashboard', [penggunaController::class, 'dashboard'] )->middleware('admin')->middleware('auth');
+// Route::post('/dashboard/{year:year}', [penggunaController::class, 'dashboardYear'] )->middleware('admin')->middleware('auth');
 
 Route::get('/home/formLaporan', function () {
     return view('formLaporan');

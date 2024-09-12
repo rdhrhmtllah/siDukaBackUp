@@ -207,6 +207,21 @@
           Darurat
         </span>
       </div>
+      <div class="inline-flex items-center">
+        <form action="/dashboard" >
+        <select  name="year" id="year" class="inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-s">
+          @for ($year = date('Y'); $year > date('Y') - 100; $year--)
+          <option class="text-[#1f2937] space-y-0.5 font-sans" value="{{date('Y')}}" disabled hidden>
+          {{$yearSelect}}
+          </option>
+          <option class="text-[#1f2937] space-y-0.5 font-sans" value="{{$year}}">
+                  {{$year}}
+          </option>
+          @endfor
+        </select>
+      </form>
+      </div>
+     
     <!-- End Legend Indicator -->
 
     <div id="hs-curved-area-charts"></div>
@@ -232,7 +247,12 @@
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   <script src="https://preline.co/assets/js/hs-apexcharts-helpers.js"></script>
-
+  <script>
+    var select = document.getElementById('year');
+    select.onchange = function(){
+    this.form.submit();
+  };
+  </script>
 
   <script>
     window.addEventListener('load', () => {
@@ -249,15 +269,16 @@
               enabled: false
             }
           },
-          @dd($chartDarurat)
+          
           series: [
             {
               name: 'Normal',
-              data: $chartNormal
+              data: [{{$chartNormal}}]
             },
+      
             {
               name: 'Darurat',
-              data: $chartDarurat
+              data: [{{$chartDarurat}}]
             }
           ],
           legend: {
@@ -337,25 +358,26 @@
                 fontFamily: 'Inter, ui-sans-serif',
                 fontWeight: 400
               },
-              formatter: (value) => value >= 1000 ? `${value / 1000}k` : value
+            
             }
           },
           tooltip: {
             x: {
-              format: 'MMMM yyyy'
+              format: 'MMMM '
             },
             y: {
-              formatter: (value) => `$${value >= 1000 ? `${value / 1000}k` : value}`
+            
             },
             custom: function (props) {
               const { categories } = props.ctx.opts.xaxis;
               const { dataPointIndex } = props;
               const title = categories[dataPointIndex].split(' ');
-              const newTitle = `${title[0]} ${title[1]}`;
+              const newTitle = `${title[0]}`;
   
               return buildTooltip(props, {
                 title: newTitle,
                 mode,
+                valuePrefix: '',
                 hasTextLabel: true,
                 wrapperExtClasses: 'min-w-28',
                 labelDivider: ':',
@@ -377,7 +399,7 @@
                   fontWeight: 400
                 },
                 offsetX: -2,
-                formatter: (title) => title.slice(0, 3)
+                
               },
               yaxis: {
                 labels: {
@@ -390,7 +412,7 @@
                     fontFamily: 'Inter, ui-sans-serif',
                     fontWeight: 400
                   },
-                  formatter: (value) => value >= 1000 ? `${value / 1000}k` : value
+                
                 }
               },
             },

@@ -19,7 +19,8 @@ class isAdmin
         if (Auth::user()->is_admin == '1') {
 
             return $next($request);
-        }
+        }else{
         abort(401);
+        }
     }
 }

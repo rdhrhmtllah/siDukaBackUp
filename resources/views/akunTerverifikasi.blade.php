@@ -16,7 +16,7 @@
                                   <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200">
                                    Admin
                                   </h2>
-                                  <form class="flex gap-2" action="/searchAdmin" method="get">
+                                  <form class="flex gap-2" action="/akunTerverifikasi/searchAdmin" method="get">
                                     @csrf
                                   <div class="relative border rounded-md">
                                       <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5">

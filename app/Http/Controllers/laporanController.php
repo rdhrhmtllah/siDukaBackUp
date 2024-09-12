@@ -176,5 +176,15 @@ class laporanController extends Controller
          }
         
     }
+
+    public function searchDarurat(Request $request){
+        $search = $request->search;
+        $darurat = laporan::latest()->where('urgensi', '=', 1)->where('keterangan', '=', 0)->count();
+        $normal = laporan::latest()->where('urgensi', '=', 0)->where('keterangan', '=', 0)->count();
+        $selesai = laporan::latest()->where('keterangan', '=', 1)->count();
+        $datas = laporan::latest()->where('urgensi', '=', 1)->where('keterangan', '=', 0)->whereAny(['judulKejadian', 'email','nohp','alamat'], 'LIKE', "%$search%")->paginate(8);
+        // dd($datas);
+        return view('akunTerverifikasiUser', ['datas' => $datas, 'hitungDarurat' => $darurat, 'hitungNormal' => $normal, 'hitungSelesai' => $selesai]);
+    } 
     
 }

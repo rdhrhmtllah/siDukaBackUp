@@ -80,6 +80,8 @@ Route::get('/adminNormal/download/{laporan:id}', [laporanController::class, 'dow
 Route::post('/adminNormal/{laporan:id}/update', [laporanController::class, 'update']);
 Route::post('/adminNormal/{laporan:id}', [laporanController::class, 'destroy']);
 
+
+Route::get('/adminDarurat/searchDarurat', [laporanController::class, 'searchDarurat'])->middleware('admin');
 Route::get('/adminDarurat', [laporanController::class, 'daruratTable'])->middleware('admin');
 Route::post('/adminDarurat/{laporan:id}/update', [laporanController::class, 'update']);
 Route::post('/adminDarurat/{laporan:id}', [laporanController::class, 'destroy']);
@@ -89,7 +91,9 @@ Route::post('/adminSelesai/{laporan:id}/update', [laporanController::class, 'upd
 Route::post('/adminSelesai/{laporan:id}', [laporanController::class, 'destroy']);
 
 Route::get('/akunTerverifikasi', [penggunaController::class, 'index'])->middleware('admin');
-Route::get('/searchAdmin', [penggunaController::class, 'searchAdmin'])->middleware('admin');
+Route::get('/akunTerverifikasi/searchAdmin', [penggunaController::class, 'searchAdmin'])->middleware('admin');
+Route::get('/akunTerverifikasiUser/searchUser', [penggunaController::class, 'searchUser'])->middleware('admin');
+Route::get('/akunBelumVerifikasiUser/searchUser', [penggunaController::class, 'searchBelumUser'])->middleware('admin');
 Route::post('/addAdmin', [penggunaController::class, 'store'])->middleware('admin');
 Route::post('/akunTerverifikasi/{user:id}/edit', [penggunaController::class, 'edit'])->middleware('admin');
 Route::post('/akunTerverifikasi/{user:id}', [penggunaController::class, 'destroy'])->middleware('admin');

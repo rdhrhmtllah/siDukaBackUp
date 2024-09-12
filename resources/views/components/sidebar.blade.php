@@ -97,13 +97,13 @@ lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
                                            role="region" aria-labelledby="users-accordion-sub-1">
                                            <ul class="pt-1 space-y-1">
                                                <li>
-                                                   <a class="{{ request()->is('akunTerverifikasi') ? 'bg-gray-100' : '' }} flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                                   <a class="{{ request()->is('akunTerverifikasi/*') ? 'bg-gray-100' : '' }} flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
                                                        href="/akunTerverifikasi">
                                                        Admin
                                                    </a>
                                                </li>
                                                <li>
-                                                   <a class="{{ request()->is('akunTerverifikasiUser') ? 'bg-gray-100' : '' }}  flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                                   <a class="{{ request()->is('akunTerverifikasiUser*') ? 'bg-gray-100' : '' }}  flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
                                                        href="/akunTerverifikasiUser">
                                                        User
                                                    </a>

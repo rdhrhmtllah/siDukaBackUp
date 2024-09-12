@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/x-icon" href="{{ asset('garuda.png') }}">
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    <title>Home</title>
+    <title>Dashboard | Kotak Saran</title>
 </head>
 
 <body class="bg-[#f9fafb]">
@@ -31,17 +32,30 @@
                               <div class="p-1.5 min-w-full inline-block align-middle">
                                 <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden ">
                                   <!-- Header -->
-                                  <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700">
-                                    <div>
+                                  <div class="px-6 py-4 gap-3 flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700">
+                                    <div class="flex gap-6 justify-start items-center">
                                       <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200">
-                                       Kotak Saran
+                                        Kotak Saran
                                       </h2>
-                                   
+                                      <form class="flex gap-2" action="/manageKotakSaran/searchSaran" method="get">
+                                        @csrf
+                                      <div class="relative border rounded-md">
+                                          <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5">
+                                            <svg class="shrink-0 size-4 text-gray-400 dark:text-white/60" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                              <circle cx="11" cy="11" r="8"></circle>
+                                              <path d="m21 21-4.3-4.3"></path>
+                                            </svg>
+                                          </div>
+                                          <input name="search" type="text" class="py-2 ps-10 pe-16 block w-full bg-white border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#ffb588] focus:ring-[#ffb588] disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder:text-neutral-400 dark:focus:ring-neutral-600" placeholder="Search">
+                                          
+                                        </div>
+                                        <button type="submit" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-[#e6b9a6] text-white hover:bg-[#e8987c] focus:outline-none focus:bg-[#e8987c] disabled:opacity-50 disabled:pointer-events-none" >
+                                          Search
+                                        </button>
+                                    </form>
                                     </div>
                     
-                                    <div>
-                                
-                                    </div>
+                                    
                                   </div>
         
         
@@ -180,7 +194,7 @@
                                     <div class="relative  border rounded-lg @error('title') border-red-500 @enderror">
                                         <input autofocus type="text" id="title" name="title"
                                             value="{{ old('title') }}"
-                                            class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none "
+                                            class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-[#ffb588] focus:ring-[#ffb588] disabled:opacity-50 disabled:pointer-events-none "
                                             required aria-describedby="title-error">
                                         <div class="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
                                             <svg class="size-5 text-red-500" width="16" height="16"
@@ -203,7 +217,7 @@
                                     <label for="foto" class="block text-sm mb-2">Masukan Foto</label>
                                     <div class="relative  border rounded-lg  @error('foto') border-red-500 @enderror">
                                         <input type="file" id="foto" name="foto"
-                                            class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                                            class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-[#ffb588] focus:ring-[#ffb588] disabled:opacity-50 disabled:pointer-events-none"
                                             required aria-describedby="foto-error">
                                         <div class="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
                                             <svg class="size-5 text-red-500" width="16" height="16"
@@ -225,7 +239,7 @@
                                    <label for="status" class="block text-sm mb-2">Masukan status</label>
                                    <div class="relative  border rounded-lg  @error('status') border-red-500 @enderror">
                                        <select  id="status" name="status"
-                                           class="py-4 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                                           class="py-4 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-[#ffb588] focus:ring-[#ffb588] disabled:opacity-50 disabled:pointer-events-none"
                                            required aria-describedby="status-error">
                                         <option value="1">Darurat</option>
                                         <option value="0">Normal</option>
@@ -251,7 +265,7 @@
                                     <label for="isi" class="block text-sm mb-2">Deksripsi</label>
                                     <div class="relative  border rounded-lg  @error('isi') border-red-500 @enderror">
                                         <textarea type="text" id="isi" name="isi" value="{{ old('isi') }}"
-                                            class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none " rows="3" 
+                                            class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-[#ffb588] focus:ring-[#ffb588] disabled:opacity-50 disabled:pointer-events-none " rows="3" 
                                             required aria-describedby="isi-error"></textarea>
                                         <div class="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
                                             <svg class="size-5 text-red-500" width="16" height="16"
@@ -270,7 +284,7 @@
                            
                             <div class="my-2 col-span-3">
                                 <button type="submit"
-                                    class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Submit</button>
+                                    class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-[#e6b9a6] text-white hover:bg-[#e8987c] focus:outline-none focus:bg-[#e8987c] disabled:opacity-50 disabled:pointer-events-none">Submit</button>
 
                             </div>
                         </div>
@@ -310,7 +324,7 @@
 
                     <div class="mt-1 flex justify-center gap-x-4">
                         <button type="button"
-                            class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+                            class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-[#e6b9a6] text-white hover:bg-[#e8987c] focus:outline-none focus:bg-[#e8987c] disabled:opacity-50 disabled:pointer-events-none"
                             data-hs-overlay="#hs-subscription-with-image">
                             Cancel
                         </button>

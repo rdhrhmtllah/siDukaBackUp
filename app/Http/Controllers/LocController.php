@@ -12,7 +12,7 @@ class LocController extends Controller
     public function index(Request $request)
     {
         // $ip = Request::getClientIp(true);
-        dd($request->all());
+        // dd($request->all());
 
         $getip = $request->ip();
         // $ip = '127.0.0.1:8080/$getip'; /* Static IP address */

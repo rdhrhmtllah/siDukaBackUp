@@ -83,4 +83,14 @@ class kotakSaranController extends Controller
         toastr()->success("Saran Telah Dihapus");
         return back();
     }
+    public function searchSaran(Request $request){
+        $search = $request->search;
+        
+        $darurat = laporan::latest()->where('urgensi', '=', 1)->where('keterangan', '=', 0)->count();
+        $normal = laporan::latest()->where('urgensi', '=', 0)->where('keterangan', '=', 0)->count();
+        $selesai = laporan::latest()->where('keterangan', '=', 1)->count();
+        $datas = kotakSaran::latest()->whereAny(['nama','email','nohp','pesan','created_at'], 'LIKE', "%$search%")->paginate(8);
+        // dd($datas);
+        return view('manageKotakSaran', ['datas' => $datas, 'hitungDarurat' => $darurat, 'hitungNormal' => $normal, 'hitungSelesai' => $selesai]);
+    } 
 }

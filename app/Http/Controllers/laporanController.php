@@ -179,12 +179,39 @@ class laporanController extends Controller
 
     public function searchDarurat(Request $request){
         $search = $request->search;
+        
         $darurat = laporan::latest()->where('urgensi', '=', 1)->where('keterangan', '=', 0)->count();
         $normal = laporan::latest()->where('urgensi', '=', 0)->where('keterangan', '=', 0)->count();
         $selesai = laporan::latest()->where('keterangan', '=', 1)->count();
-        $datas = laporan::latest()->where('urgensi', '=', 1)->where('keterangan', '=', 0)->whereAny(['judulKejadian', 'email','nohp','alamat'], 'LIKE', "%$search%")->paginate(8);
+        $datas = laporan::latest()->where('urgensi', '=', 1)->where('keterangan', '=', 0)->whereAny(['nohp','created_at'], 'LIKE', "%$search%")->orWhereHas('user', function($query) use($search){
+            $query->where('name','LIKE','%'.$search.'%');
+        })->where('urgensi', '=', 1)->where('keterangan', '=', 0)->paginate(8);
         // dd($datas);
-        return view('akunTerverifikasiUser', ['datas' => $datas, 'hitungDarurat' => $darurat, 'hitungNormal' => $normal, 'hitungSelesai' => $selesai]);
+        return view('daruratLaporanAdmin', ['datas' => $datas, 'hitungDarurat' => $darurat, 'hitungNormal' => $normal, 'hitungSelesai' => $selesai]);
+    } 
+    public function searchNormal(Request $request){
+        $search = $request->search;
+        
+        $darurat = laporan::latest()->where('urgensi', '=', 1)->where('keterangan', '=', 0)->count();
+        $normal = laporan::latest()->where('urgensi', '=', 0)->where('keterangan', '=', 0)->count();
+        $selesai = laporan::latest()->where('keterangan', '=', 1)->count();
+        $datas = laporan::latest()->where('urgensi', '=', 0)->where('keterangan', '=', 0)->whereAny(['judulKejadian','kronologi','lokasi','nohp','created_at'], 'LIKE', "%$search%")->orWhereHas('user', function($query) use($search){
+            $query->where('name','LIKE','%'.$search.'%');
+        })->where('urgensi', '=', 0)->where('keterangan', '=', 0)->paginate(8);
+        // dd($datas);
+        return view('normalLaporanAdmin', ['datas' => $datas, 'hitungDarurat' => $darurat, 'hitungNormal' => $normal, 'hitungSelesai' => $selesai]);
+    } 
+    public function searchSelesai(Request $request){
+        $search = $request->search;
+        
+        $darurat = laporan::latest()->where('urgensi', '=', 1)->where('keterangan', '=', 0)->count();
+        $normal = laporan::latest()->where('urgensi', '=', 0)->where('keterangan', '=', 0)->count();
+        $selesai = laporan::latest()->where('keterangan', '=', 1)->count();
+        $datas = laporan::latest()->where('urgensi', '=', 0)->where('keterangan', '=', 1)->whereAny(['judulKejadian','lokasi','nohp','updated_at'], 'LIKE', "%$search%")->orWhereHas('user', function($query) use($search){
+            $query->where('name','LIKE','%'.$search.'%');
+        })->where('urgensi', '=', 0)->where('keterangan', '=', 1)->paginate(8);
+        // dd($datas);
+        return view('laporanSelesai', ['datas' => $datas, 'hitungDarurat' => $darurat, 'hitungNormal' => $normal, 'hitungSelesai' => $selesai]);
     } 
     
 }

@@ -92,4 +92,19 @@ class manageBeritaController extends Controller
         toastr()->success("Berita Telah Dihapus");
         return back();
     }
+
+    public function searchBerita(Request $request){
+        $search = $request->search;
+        
+        $darurat = laporan::latest()->where('urgensi', '=', 1)->where('keterangan', '=', 0)->count();
+        $normal = laporan::latest()->where('urgensi', '=', 0)->where('keterangan', '=', 0)->count();
+        $selesai = laporan::latest()->where('keterangan', '=', 1)->count();
+        $datas = Post::latest()->whereAny(['title','isi','created_at'], 'LIKE', "%$search%")->orWhereHas('author', function($query) use($search){
+            $query->where('name','LIKE','%'.$search.'%');
+        })->paginate(8);
+        // dd($datas);
+        return view('manageBerita', ['datas' => $datas, 'hitungDarurat' => $darurat, 'hitungNormal' => $normal, 'hitungSelesai' => $selesai]);
+    } 
+
+    
 }

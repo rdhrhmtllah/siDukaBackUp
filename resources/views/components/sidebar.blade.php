@@ -220,7 +220,7 @@ lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
                                role="region" aria-labelledby="projects-accordion">
                                <ul class="ps-8 pt-1 space-y-1">
                                    <li>
-                                       <a class="{{ request()->is('adminDarurat') ? 'bg-gray-100' : '' }} justify-between flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                       <a class="{{ request()->is('adminDarurat*') ? 'bg-gray-100' : '' }} justify-between flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
                                            href="/adminDarurat">
                                            Darurat
                                            <div class="flex flex-wrap items-center justify-center text-center ">
@@ -233,7 +233,7 @@ lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
                                        </a>
                                    </li>
                                    <li>
-                                       <a class="{{ request()->is('adminNormal') ? 'bg-gray-100' : '' }} justify-between flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                       <a class="{{ request()->is('adminNormal*') ? 'bg-gray-100' : '' }} justify-between flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
                                            href="/adminNormal">
                                            Normal
                                            <span
@@ -241,7 +241,7 @@ lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
                                        </a>
                                    </li>
                                    <li class="inline">
-                                       <a class="{{ request()->is('adminSelesai') ? 'bg-gray-100' : '' }} justify-between flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                       <a class="{{ request()->is('adminSelesai*') ? 'bg-gray-100' : '' }} justify-between flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
                                            href="/adminSelesai">
                                            Selesai
                                            <span
@@ -254,7 +254,7 @@ lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
                        </li>
 
 
-                       <li><a class="{{ request()->is('manageBerita') ? 'bg-gray-100' : '' }} w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                       <li><a class="{{ request()->is('manageBerita*') ? 'bg-gray-100' : '' }} w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
                                href="/manageBerita">
                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -264,7 +264,7 @@ lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
                                </svg>
                                Berita
                            </a></li>
-                       <li><a class="{{ request()->is('manageKotakSaran') ? 'bg-gray-100' : '' }} w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
+                       <li><a class="{{ request()->is('manageKotakSaran*') ? 'bg-gray-100' : '' }} w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
                                href="/manageKotakSaran">
                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"

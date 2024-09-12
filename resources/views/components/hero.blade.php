@@ -8,7 +8,7 @@
             </h1>
             <p class="text-md mb-2">Jelaskan kejadian perundungan secepatnya..</p>
             <a href="/home/formLaporan"><button
-                    class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-transparent bg-[#E6B9A6] text-black hover:bg-[#E8987C] transition disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-[#E8987C]">Laporkan!</button></a>
+                    class="py-2 px-3 inline-flex items-center gap-x-2 text-white text-sm font-bold rounded-xl border border-transparent bg-[#e6b9a6]  hover:bg-[#E8987C] transition disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-[#E8987C]">Laporkan!</button></a>
         </div>
 
         <div class="place-self-center p-6 ">

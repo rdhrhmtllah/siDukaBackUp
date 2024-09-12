@@ -14,11 +14,13 @@ use App\Http\Controllers\manageBeritaController;
 use App\Http\Controllers\penggunaController;
 use App\Http\Controllers\registerController;
 use App\Models\User;
+use Illuminate\Http\Request;
+
 
 Route::get('/', function () {
     $posts = Post::latest()->take(4)->get();
     return view('home', ['posts' => $posts]);
-});
+})->name('home');
 
 Route::get('/dashboard', [penggunaController::class, 'dashboard'] )->middleware('admin')->middleware('auth');
 // Route::post('/dashboard/{year:year}', [penggunaController::class, 'dashboardYear'] )->middleware('admin')->middleware('auth');
@@ -37,6 +39,14 @@ Route::get('/about', function () {
 
 Route::get('/moreberita', function () {
     $posts = Post::latest()->simplePaginate(8)->withQueryString();
+    return view('banyak_berita', ['posts' => $posts]);
+});
+
+Route::get('/moreberita/searchMoreBerita', function (Request $request) {
+    $search = $request->search;
+    $posts =  Post::latest()->whereAny(['title','isi','created_at'], 'LIKE', "%$search%")->orWhereHas('author', function($query) use($search){
+        $query->where('name','LIKE','%'.$search.'%');
+    })->simplePaginate(8)->withQueryString();
     return view('banyak_berita', ['posts' => $posts]);
 });
 
@@ -79,6 +89,7 @@ Route::get('/adminNormal', [laporanController::class, 'index'])->middleware('adm
 Route::get('/adminNormal/download/{laporan:id}', [laporanController::class, 'download'])->middleware('admin');
 Route::post('/adminNormal/{laporan:id}/update', [laporanController::class, 'update']);
 Route::post('/adminNormal/{laporan:id}', [laporanController::class, 'destroy']);
+Route::get('/adminNormal/searchNormal', [laporanController::class, 'searchNormal'])->middleware('admin');
 
 
 Route::get('/adminDarurat/searchDarurat', [laporanController::class, 'searchDarurat'])->middleware('admin');
@@ -89,6 +100,7 @@ Route::post('/adminDarurat/{laporan:id}', [laporanController::class, 'destroy'])
 Route::get('/adminSelesai', [laporanController::class, 'show'])->middleware('admin');
 Route::post('/adminSelesai/{laporan:id}/update', [laporanController::class, 'update']);
 Route::post('/adminSelesai/{laporan:id}', [laporanController::class, 'destroy']);
+Route::get('/adminSelesai/searchSelesai', [laporanController::class, 'searchSelesai'])->middleware('admin');
 
 Route::get('/akunTerverifikasi', [penggunaController::class, 'index'])->middleware('admin');
 Route::get('/akunTerverifikasi/searchAdmin', [penggunaController::class, 'searchAdmin'])->middleware('admin');
@@ -107,10 +119,13 @@ Route::get('/akunBelumVerifikasi', [penggunaController::class, 'belumVerifikasi'
 Route::get('/manageBerita', [manageBeritaController::class,'index'])->middleware('admin');
 Route::post('/manageBerita/{post:slug}/show', [manageBeritaController::class,'show'])->middleware('admin');
 Route::post('/manageBerita/{post:slug}', [manageBeritaController::class,'destroy'])->middleware('admin');
+Route::get('/manageBerita/searchBerita', [manageBeritaController::class, 'searchBerita'])->middleware('admin');
 Route::post('/addBerita', [manageBeritaController::class,'store'])->middleware('admin');
 Route::post('/kotakSaran', [kotakSaranController::class,'store']);
 Route::get('/manageKotakSaran', [kotakSaranController::class,'index'])->middleware('admin');
 Route::post('/manageKotakSaran/{kotakSaran:id}', [kotakSaranController::class,'destroy'])->middleware('admin');
+Route::get('/manageKotakSaran/searchSaran', [kotakSaranController::class, 'searchSaran'])->middleware('admin');
+
 
 Route::get('/mark-as-read', [laporanController::class,'markAsRead'])->name('mark-as-read');
 Route::get('/markAsNotif/{id}', [laporanController::class,'markAsReadNotif']);

@@ -29,10 +29,7 @@
                  <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-1 space-y-0.5 mt-2 after:h-4 after:absolute after:-bottom-4 after:start-0 after:w-full before:h-4 before:absolute before:-top-4 before:start-0 before:w-full"
                      role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-hover-event">
 
-                     <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                         href="/userProfile">
-                         Profile
-                     </a>
+                     
                      @can('admin')
                          <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
                              href="/dashboard">
@@ -92,7 +89,7 @@
                      <x-nav-link href="/" :active="request()->is('/')">HOME</x-nav-link>
                  </div>
                  <div>
-                     <x-nav-link href="/moreberita" :active="request()->is('moreberita')">BERITA</x-nav-link>
+                     <x-nav-link href="/moreberita" :active="request()->is('moreberita*')">BERITA</x-nav-link>
                  </div>
                  <div>
                      <x-nav-link href="/about" :active="request()->is('about')">ABOUT</x-nav-link>

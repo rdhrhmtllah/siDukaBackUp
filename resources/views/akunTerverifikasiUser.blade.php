@@ -35,10 +35,10 @@
                                       <path d="m21 21-4.3-4.3"></path>
                                     </svg>
                                   </div>
-                                  <input name="search" type="text" class="py-2 ps-10 pe-16 block w-full bg-white border-gray-200 rounded-lg text-sm focus:outline-none focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder:text-neutral-400 dark:focus:ring-neutral-600" placeholder="Search">
+                                  <input name="search" type="text" class="py-2 ps-10 pe-16 block w-full bg-white border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#ffb588] focus:ring-[#ffb588] disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder:text-neutral-400 dark:focus:ring-neutral-600" placeholder="Search">
                                   
                                 </div>
-                                <button type="submit" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" >
+                                <button type="submit" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-[#e6b9a6] text-white hover:bg-[#e8987c] focus:outline-none focus:bg-[#e8987c] disabled:opacity-50 disabled:pointer-events-none" >
                                   Search
                                 </button>
                             </form>
@@ -156,7 +156,7 @@
                                                                     <input autofocus type="text" id="name"
                                                                         name="name"
                                                                         value="{{ old('name', $data->name) }}"
-                                                                        class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none "
+                                                                        class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-[#ffb588] focus:ring-[#ffb588] disabled:opacity-50 disabled:pointer-events-none "
                                                                         required aria-describedby="name-error">
                                                                     <div
                                                                         class="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
@@ -186,8 +186,8 @@
                                                                     <input type="text" id="email" name="email"
                                                                         value="{{ old('email', $data->email) }}"
                                                                         class="py-3
-                                        px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500
-                                        focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                                        px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-[#ffb588]
+                                        focus:ring-[#ffb588] disabled:opacity-50 disabled:pointer-events-none"
                                                                         required aria-describedby="email-error">
                                                                     <div
                                                                         class="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
@@ -216,8 +216,8 @@
                                                                     <input type="text" id="alamat" name="alamat"
                                                                         value="{{ old('alamat', $data->alamat) }}"
                                                                         class="py-3
-                                        px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500
-                                        focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                                        px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-[#ffb588]
+                                        focus:ring-[#ffb588] disabled:opacity-50 disabled:pointer-events-none"
                                                                         required aria-describedby="alamat-error">
                                                                     <div
                                                                         class="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
@@ -247,7 +247,7 @@
                                                                     <input type="number" id="nohp"
                                                                         value="{{ old('nohp', $data->nohp) }}"
                                                                         name="nohp"
-                                                                        class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                                                                        class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-[#ffb588] focus:ring-[#ffb588] disabled:opacity-50 disabled:pointer-events-none"
                                                                         required aria-describedby="nohp-error">
                                                                     <div
                                                                         class="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
@@ -274,7 +274,7 @@
                                                                 <div
                                                                     class="relative  border rounded-lg  @error('password') border-red-500 @enderror">
                                                                     <input type="password" id="password" name="password"
-                                                                        class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                                                                        class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-[#ffb588] focus:ring-[#ffb588] disabled:opacity-50 disabled:pointer-events-none"
                                                                         aria-describedby="password-error">
                                                                     <div
                                                                         class="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
@@ -301,7 +301,7 @@
                                                                 <div class="relative  border rounded-lg">
                                                                     <input type="password" id="confirm-password"
                                                                         name="confirm-password"
-                                                                        class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                                                                        class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-[#ffb588] focus:ring-[#ffb588] disabled:opacity-50 disabled:pointer-events-none"
                                                                         aria-describedby="confirm-password-error">
                                                                     <div
                                                                         class="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
@@ -326,7 +326,7 @@
                                                         </div>
                                                         <div class="col-span-3">
                                                             <button type="submit"
-                                                                class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Submit</button>
+                                                                class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-[#e6b9a6] text-white hover:bg-[#e8987c] focus:outline-none focus:bg-[#e8987c] disabled:opacity-50 disabled:pointer-events-none">Submit</button>
 
                                                         </div>
                                                     </div>

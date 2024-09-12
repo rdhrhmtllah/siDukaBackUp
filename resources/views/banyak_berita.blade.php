@@ -3,9 +3,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/x-icon" href="{{ asset('garuda.png') }}">
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    <title>Home</title>
+    <title>Berita</title>
 </head>
 
 <body>
@@ -14,7 +15,23 @@
 
     <!-- Card Blog -->
     <!-- Card Blog -->
-<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+<div class="max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14 mx-auto">
+  <form class="flex gap-2 justify-center mb-10" action="/moreberita/searchMoreBerita" method="get">
+    @csrf
+  <div class="relative border rounded-md">
+      <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5">
+        <svg class="shrink-0 size-4 text-gray-400 dark:text-white/60" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+        </svg>
+      </div>
+      <input name="search" type="text" class="py-2 ps-10 pe-16 block w-full bg-white border-gray-200 rounded-lg text-sm focus:outline-none focus:border-[#ffb588] focus:ring-[#ffb588] disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder:text-neutral-400 dark:focus:ring-neutral-600" placeholder="Search">
+      
+    </div>
+    <button type="submit" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-[#e8987c] text-white hover:bg-[#e8987c] focus:outline-none focus:bg-[#e8987c] disabled:opacity-50 disabled:pointer-events-none" >
+      Search
+    </button>
+</form>
     <!-- Grid -->
     <div class="grid lg:grid-cols-2 gap-6">
         @foreach ($posts as $post)
@@ -22,7 +39,7 @@
       <a class="group sm:flex rounded-xl focus:outline-none" href="/moreberita/{{ $post->slug }}">
         <div class="shrink-0 relative rounded-xl overflow-hidden h-[200px] sm:w-[250px] sm:h-[350px] w-full">
           @if ($post->foto == null)
-          <img class="size-full absolute top-0 start-0 object-cover" src="https://images.unsplash.com/photo-1664574654529-b60630f33fdb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80" alt="Blog Image">
+          <img class="size-full absolute top-0 start-0 object-cover" src="{{ asset('garuda.png') }}" alt="Blog Image">
           @else
           <img class="size-full absolute top-0 start-0 object-cover" src="{{ asset('/storage/post-image/' . $post->foto) }}" alt="Blog Image">
           @endif
@@ -39,14 +56,14 @@
                 @endif
               </p>
             </div>
-            <h3 class="text-lg sm:text-2xl font-semibold text-gray-800 group-hover:text-blue-600 group-focus:text-blue-600">
+            <h3 class="text-lg sm:text-2xl font-semibold text-gray-800 group-hover:text-[#e8987c] group-focus:text-[#e8987c]">
                 {{ $post['title'] }}
             </h3>
             <p class="mt-2 text-gray-600">
                 {{ Str::limit($post['isi'], 150) }}
             </p>
             <p
-                                class="mt-4 inline-flex items-center gap-x-1 text-sm text-blue-600 decoration-2 group-hover:underline group-focus:underline font-medium">
+                                class="mt-4 inline-flex items-center gap-x-1 text-sm text-[#e8987c] decoration-2 group-hover:underline group-focus:underline font-medium">
                                 Read more
                                 <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"

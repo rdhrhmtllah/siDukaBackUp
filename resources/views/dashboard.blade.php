@@ -198,22 +198,22 @@
       <div class="inline-flex items-center">
         <span class="size-2.5 inline-block bg-blue-600 rounded-sm me-2"></span>
         <span class="text-[13px] text-gray-600 dark:text-neutral-400">
-          Normal
+          Jumlah Laporan Normal
         </span>
       </div>
       <div class="inline-flex items-center">
         <span class="size-2.5 inline-block bg-purple-600 rounded-sm me-2"></span>
         <span class="text-[13px] text-gray-600 dark:text-neutral-400">
-          Darurat
+          Jumlah Laporan Darurat
         </span>
       </div>
       <div class="inline-flex items-center">
         <form action="/dashboard" >
         <select  name="year" id="year" class="inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-s">
-          @for ($year = date('Y'); $year > date('Y') - 100; $year--)
-          <option class="text-[#1f2937] space-y-0.5 font-sans" value="{{date('Y')}}" disabled hidden>
+          <option class="text-[#1f2937] space-y-0.5 font-sans" value="{{$yearSelect}}"  hidden>
           {{$yearSelect}}
           </option>
+          @for ($year = date('Y'); $year > date('Y') - 100; $year--)
           <option class="text-[#1f2937] space-y-0.5 font-sans" value="{{$year}}">
                   {{$year}}
           </option>
@@ -475,6 +475,7 @@
     <script src="./node_modules/lodash/lodash.min.js"></script>
     <script src="./node_modules/apexcharts/dist/apexcharts.min.js"></script>
 </body>
+{{-- @dd($yearSelect) --}}
 
 
 </html>

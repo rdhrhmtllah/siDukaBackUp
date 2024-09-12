@@ -75,7 +75,7 @@
 
                     <div class="mt-3 text-center">
                         <p class="text-sm text-gray-500 ">
-                           Terimakasih Telah Memberikan saran.
+                            © Copyright {{date('Y')}} KPAD SUMSEL - All Rights Reserved
                         </p>
                     </div>
                 </form>

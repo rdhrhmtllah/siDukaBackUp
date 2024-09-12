@@ -89,6 +89,7 @@ Route::post('/adminSelesai/{laporan:id}/update', [laporanController::class, 'upd
 Route::post('/adminSelesai/{laporan:id}', [laporanController::class, 'destroy']);
 
 Route::get('/akunTerverifikasi', [penggunaController::class, 'index'])->middleware('admin');
+Route::get('/searchAdmin', [penggunaController::class, 'searchAdmin'])->middleware('admin');
 Route::post('/addAdmin', [penggunaController::class, 'store'])->middleware('admin');
 Route::post('/akunTerverifikasi/{user:id}/edit', [penggunaController::class, 'edit'])->middleware('admin');
 Route::post('/akunTerverifikasi/{user:id}', [penggunaController::class, 'destroy'])->middleware('admin');
@@ -108,3 +109,4 @@ Route::get('/manageKotakSaran', [kotakSaranController::class,'index'])->middlewa
 Route::post('/manageKotakSaran/{kotakSaran:id}', [kotakSaranController::class,'destroy'])->middleware('admin');
 
 Route::get('/mark-as-read', [laporanController::class,'markAsRead'])->name('mark-as-read');
+Route::get('/markAsNotif/{id}', [laporanController::class,'markAsReadNotif']);

@@ -92,6 +92,18 @@ class laporanController extends Controller
           return redirect()->back();
      }
 
+    public function markAsReadNotif($id){
+        $userUnreadNotification = auth()->user()
+        ->unreadNotifications
+        ->where('id', $id)
+        ->first();
+
+        if($userUnreadNotification) {
+        $userUnreadNotification->markAsRead();
+        }
+        return redirect('/adminNormal');
+    }
+
     /**
      * Display the specified resource.
      */

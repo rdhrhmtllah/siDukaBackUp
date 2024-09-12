@@ -59,7 +59,8 @@ class penggunaController extends Controller
             'email' => ['required', 'min:3', 'max:50', 'unique:users'],
             'alamat' => 'required|max:255',
             'nohp' => 'required|unique:users',
-            'password' => 'required|min:5|max:255',
+            'password' => 'required|min:5|max:255|required_with:confirm-password',
+            'confirm-password' => 'required|min:5|same:password',
         ]);
         // dd($validatedData);
 
@@ -77,7 +78,7 @@ class penggunaController extends Controller
      */
     public function show(user $user)
     {
-        //
+        
     }
 
     /**
@@ -160,5 +161,15 @@ class penggunaController extends Controller
     $totalUser = User::all()->count();
     return view('dashboard', ['hitungDarurat' => $darurat, 'hitungNormal' => $normal, 'hitungSelesai' => $selesai, 'totalUser'=> $totalUser, 'totalBerita'=> $totalBerita, 'chartNormal' => implode(', ',$chartNormal),'chartDarurat'=> implode(', ',$chartDarurat), 'yearSelect' => $year]);
     }
+
+    public function searchAdmin(Request $request){
+        $search = $request->search;
+        $darurat = laporan::latest()->where('urgensi', '=', 1)->where('keterangan', '=', 0)->count();
+        $normal = laporan::latest()->where('urgensi', '=', 0)->where('keterangan', '=', 0)->count();
+        $selesai = laporan::latest()->where('keterangan', '=', 1)->count();
+        $datas = user::latest()->whereAny(['name', 'email','nohp','alamat'], 'LIKE', "%$search%")->paginate(8);
+        // dd($datas);
+        return view('akunTerverifikasi', ['datas' => $datas, 'hitungDarurat' => $darurat, 'hitungNormal' => $normal, 'hitungSelesai' => $selesai]);
+    } 
     
 }

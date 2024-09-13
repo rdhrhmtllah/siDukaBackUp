@@ -70,7 +70,7 @@
 
                     <div class="mt-4 grid">
                         <button type="submit"
-                            class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent hover:bg-[#E6B9A6] text-white bg-[#E8987C] ">Kirim Saran</button>
+                            class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent hover:bg-[#e8987c] text-white bg-[#e6b9a6] ">Kirim Saran</button>
                     </div>
 
                     <div class="mt-3 text-center">

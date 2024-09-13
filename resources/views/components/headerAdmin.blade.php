@@ -97,7 +97,7 @@
                         </svg>
                         <span class="sr-only">Notifications</span>
                         <span class="absolute inline-flex top-[-11px] animate-ping items-center gap-x-1 py-2 px-2 rounded-full text-xs font-medium bg-red-500 text-white"></span>
-                        <span class="absolute inline-flex top-[-13px] items-center gap-x-1 py-[2px] px-[6px] rounded-full text-xs font-medium bg-red-500 text-white">{{auth()->user()->unreadNotifications->count()}}</span>
+                        <span class="absolute inline-flex top-[-13px] items-center gap-x-1 py-[2px] px-[3px] rounded-full text-xs font-medium bg-red-500 text-white">{{auth()->user()->unreadNotifications->count()}}</span>
                         </button>
                       {{-- notification dropdown --}}
                         <div class="hs-dropdown-menu transition-[opacity,margin]  duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-md rounded-lg p-1 space-y-0.5 mt-2 divide-y divide-gray-200" role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-with-title">

@@ -9,7 +9,7 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('garuda.png') }}">
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    <title>Reset Password</title>
+    <title>siDuka | Laporan</title>
 </head>
 
 <body>

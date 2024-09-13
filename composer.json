@@ -7,7 +7,6 @@
     "require": {
         "php": "^8.2",
         "cviebrock/eloquent-sluggable": "^11.0",
-        "diglactic/laravel-breadcrumbs": "^9.0",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "masmerise/livewire-toaster": "^2.3",

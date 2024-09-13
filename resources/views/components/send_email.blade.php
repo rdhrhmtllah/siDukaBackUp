@@ -12,25 +12,25 @@
     <title>siDuka | Verifikasi</title>
 </head>
 
-<body class="font-sans">
-<div class="container h-screen flex items-center justify-center">
-
-<div class=" p-4 mx-auto border shadow-sm rounded-xl lg:w-2/4 md:w-2/4 w-4/5 text-center ">
+<body class="" style="font-family: sans-serif;">
+  <div class="" style="display: flex; justify-content:center; align-items:center;">
   
-  {{-- header --}}
-  <header>
-    <div class="text-start">
-      <h1 class="font-bold p-5 text-2xl">siDuka.</h1>
-    </div>
-    <hr class="bg-[#feea63]">
-  </header>
-    <!-- Content -->
+  <div class=" " style="padding: 1rem; margin: 0 auto 0 auto; border:1px solid black; box-shadow: 5px 5px 60px grey; border-radius:10%; text-align:center;">
+    
+    {{-- header --}}
+    <header>
+      <div class="" style="text-align: start;">
+        <h1 class="font-bold p-5 text-2xl" style="font-weight: bold; padding:0.25rem; font-size:1.5rem">siDuka.</h1>
+      </div>
+      <hr class="" style="">
+    </header>
+      <!-- Content -->
     <div class="">
 
-      <h1 class="text-xl font-bold my-4">VERIFIKASI EMAIL</h1>
+      <h1  style="font-size:1.25rem; font-weight:bold; margin: 1rem 0 1rem 0">VERIFIKASI EMAIL</h1>
       <p class="text-justify leading-normal">Hanya Dirimu yang tahu kode ini, Jangan Berikan Token ini kepada siapa pun Termasuk Petugas!</p>
       <p class="text-start my-2 font-bold"> {{ $data['name'] }}</p>
-      <div class="mt-5 p-4 bg-[#757a62]  text-center border shadow-sm rounded-xl mx-auto">
+      <div class="mt-5 p-4 bg-[#757a62]  text-center border shadow-sm rounded-xl mx-auto" style="text-decoration: none; color:black; font-weight:bold; margin-top:1.25rem; padding:1rem;">
         <h2 class="font-bold text-white">
           {{ $data['token'] }}
         </h2>

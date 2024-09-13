@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\mailNotifikasi;
 use App\Models\User;
+use App\Mail\SendEmail;
 use App\Models\laporan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use App\Notifications\notifikasiLaporan;
 
@@ -76,6 +79,12 @@ class laporanController extends Controller
             $adminUsers = User::where('is_admin', 1)->get();
             foreach ($adminUsers as $admin) {
                 $admin->notify(new notifikasiLaporan($laporan));
+                $data =[
+                    'urgensi'=> 'normal',
+                    'lokasi'=> $laporan->lokasi,
+                ];
+                Mail::to($admin->email)->send(new mailNotifikasi($data));
+
             }
             toastr()->success('Laporan Diterima, Kami akan segera menindak laporan.');
             return redirect('/');

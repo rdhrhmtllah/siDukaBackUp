@@ -113,7 +113,7 @@
                           <div class="py-2 first:pt-0 last:pb-0 overflow-y-scroll  max-h-96  ">
                               {{-- content notifikasi --}}
                               @foreach (auth()->user()->unreadNotifications as $notification)
-                              <a href="/markAsNotif/{{ $notification->id}}" class="relative me-3 group q0mum flex  rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
+                              <a href="{{ route('markSatuNotif',$notification->id)}}" class="relative me-3 group q0mum flex  rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">
                                 <div class="relative ylm2u  w-14 m-5">
                                     <img class="ylm2u d2d9z drtn2 rounded-full" src="{{ asset('/storage/post-image/' . $notification->data['foto']) }}" alt="Avatar">
                                     <span class="absolute jdy7d -start-3 jzf4d riqyd drtn2 dark:bg-blue-500"></span>
@@ -210,7 +210,7 @@
                             </div>
                             <div class="p-1.5 space-y-0.5">
                                
-                               <form class="inline" action="/logout" method="POST">
+                               <form class="inline" action="{{ route('logout') }}" method="POST">
                          @csrf
                   
                          <button

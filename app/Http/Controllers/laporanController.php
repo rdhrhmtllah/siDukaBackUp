@@ -218,7 +218,7 @@ class laporanController extends Controller
         $selesai = laporan::latest()->where('keterangan', '=', 1)->count();
         $datas = laporan::latest()->where('urgensi', '=', 0)->where('keterangan', '=', 1)->whereAny(['judulKejadian','lokasi','nohp','updated_at'], 'LIKE', "%$search%")->orWhereHas('user', function($query) use($search){
             $query->where('name','LIKE','%'.$search.'%');
-        })->where('urgensi', '=', 0)->where('keterangan', '=', 1)->paginate(8);
+        })->where('keterangan', '=', 1)->paginate(8);
         // dd($datas);
         return view('laporanSelesai', ['datas' => $datas, 'hitungDarurat' => $darurat, 'hitungNormal' => $normal, 'hitungSelesai' => $selesai]);
     } 

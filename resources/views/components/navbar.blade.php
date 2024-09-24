@@ -5,7 +5,7 @@
          aria-label="Global">
          <div class="md:col-span-3">
              <!-- Logo -->
-             <a href="/" class="flex-none rounded-xl text-xl inline-block font-semibold focus:outline-none focus:opacity-80">
+             <a href="{{ route('home') }}" class="flex-none rounded-xl text-xl inline-block font-semibold focus:outline-none focus:opacity-80">
                  <h1 class="text-3xl font-bold">siDuKa</h1>
              </a>
              <!-- End Logo -->
@@ -32,11 +32,11 @@
                      
                      @can('admin')
                          <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                             href="/dashboard">
+                             href="{{ route('dashboard') }}">
                              Dashboard
                          </a>
                      @endcan
-                     <form action="/logout" method="POST">
+                     <form action="{{ route('logout') }}" method="POST">
                          @csrf
                          <button
                              class="flex w-full items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100">Log
@@ -47,11 +47,11 @@
              </div>
          @else
              <div class="flex items-center gap-x-2 ms-auto py-1 md:ps-6 md:order-3 md:col-span-3">
-                 <a href="/register"><button type="button"
+                 <a href="{{ route('register') }}"><button type="button"
                          class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-gray-200 text-black hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none">
                          Sign up
                      </button></a>
-                 <a href="/login"><button type="button"
+                 <a href="{{ route('login') }}"><button type="button"
                          class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-xl border border-transparent bg-[#E6B9A6] text-black hover:bg-[#E8987C] transition disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-[#E8987C]">
                          Sign in
                      </button></a>
@@ -86,13 +86,13 @@
              <div
                  class=" flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:justify-center md:items-center md:gap-y-0 md:gap-x-7 md:mt-0">
                  <div>
-                     <x-nav-link href="/" :active="request()->is('/')">HOME</x-nav-link>
+                     <x-nav-link href="{{ route('home') }}" :active="request()->is('/')">HOME</x-nav-link>
                  </div>
                  <div>
-                     <x-nav-link href="/moreberita" :active="request()->is('moreberita*')">BERITA</x-nav-link>
+                     <x-nav-link href="{{ route('moreBerita') }}" :active="request()->is('moreberita*')">BERITA</x-nav-link>
                  </div>
                  <div>
-                     <x-nav-link href="/about" :active="request()->is('about')">ABOUT</x-nav-link>
+                     <x-nav-link href="{{ route('about') }}" :active="request()->is('about')">ABOUT</x-nav-link>
                  </div>
                 
              </div>

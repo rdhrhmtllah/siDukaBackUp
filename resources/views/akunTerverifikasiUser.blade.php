@@ -22,10 +22,10 @@
                               </h2>
                               @if ( request()->is('akunTerverifikasiUser*'))
                                    
-                                   <form class="flex gap-2" action="/akunTerverifikasiUser/searchUser" method="get">
+                                   <form class="flex gap-2" action="{{ route('akunTerverifikasiUserSearch') }}" method="get">
                                     @else
                                     
-                                    <form class="flex gap-2" action="/akunBelumVerifikasiUser/searchUser" method="get">
+                                    <form class="flex gap-2" action="{{ route('akunBelumVerifikasiUserSearch') }}" method="get">
                                @endif
                                 @csrf
                               <div class="relative border rounded-md">
@@ -104,7 +104,7 @@
                                         </button>
 
 
-                                        <form class="inline" action="/akunTerverifikasiUser/{{ $data->id }}"
+                                        <form class="inline" action="{{ route('akunTerverifikasiUserDestroy', $data->id) }}"
                                             method="POST">
                                             @csrf
                                             <button type="submit"
@@ -142,7 +142,7 @@
 
                                                 </div>
 
-                                                <form action="/akunTerverifikasiUser/{{ $data->id }}/edit"
+                                                <form action="{{ route('akunTerverifikasiUserEdit',$data->id) }}"
                                                     method="post">
                                                     @csrf
                                                     <div class="md:grid grid-cols-3 gap-4">

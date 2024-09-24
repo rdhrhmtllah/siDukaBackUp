@@ -16,7 +16,7 @@
     <!-- Card Blog -->
     <!-- Card Blog -->
 <div class="max-w-[85rem] px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14 mx-auto">
-  <form class="flex gap-2 justify-center mb-10" action="/moreberita/searchMoreBerita" method="get">
+  <form class="flex gap-2 justify-center mb-10" action="{{ route('searchMoreBerita') }}" method="get">
     @csrf
   <div class="relative border rounded-md">
       <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5">
@@ -36,7 +36,7 @@
     <div class="grid lg:grid-cols-2 gap-6">
         @foreach ($posts as $post)
       <!-- Card -->
-      <a class="group sm:flex rounded-xl focus:outline-none" href="/moreberita/{{ $post->slug }}">
+      <a class="group sm:flex rounded-xl focus:outline-none" href="{{ route('satuBerita', $post['slug']) }}">
         <div class="shrink-0 relative rounded-xl overflow-hidden h-[200px] sm:w-[250px] sm:h-[350px] w-full">
           @if ($post->foto == null)
           <img class="size-full absolute top-0 start-0 object-cover" src="{{ asset('garuda.png') }}" alt="Blog Image">

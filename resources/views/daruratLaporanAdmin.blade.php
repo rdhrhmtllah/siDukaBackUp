@@ -37,7 +37,7 @@
                                       <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200">
                                        Laporan Darurat
                                       </h2>
-                                      <form class="flex gap-2" action="/adminDarurat/searchDarurat" method="get">
+                                      <form class="flex gap-2" action="{{ route('adminDaruratSearch') }}" method="get">
                                         @csrf
                                       <div class="relative border rounded-md">
                                           <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5">
@@ -102,7 +102,7 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-start text-sm font-medium">
-                                            <form class="inline" action="/adminDarurat/{{ $data->id }}/update"
+                                            <form class="inline" action="{{ route('adminDaruratUpdate', $data->id) }}"
                                                 method="POST">
                                                 @csrf
                                                 <button type="submit"
@@ -110,7 +110,7 @@
                                                 </button>
                                             </form>
 
-                                            <form class="inline" action="/adminDarurat/{{ $data->id }}"
+                                            <form class="inline" action="{{ route('adminDaruratDestroy', $data->id) }}"
                                                 method="POST">
                                                 @csrf
                                                 <button type="submit"

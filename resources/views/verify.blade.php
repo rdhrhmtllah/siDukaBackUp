@@ -28,7 +28,7 @@
 
                 <div class="mt-5">
                    
-                    <form action="/verify/{{ Auth()->user()->email }}" method="post">
+                    <form action="{{ route('verifyUser', Auth()->user()->email) }}" method="post">
                         @csrf
                         <div class="grid grid-cols-3 gap-4 place-content-center">
                             <div class="col-span-2">

@@ -37,7 +37,7 @@
                                       <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200">
                                        Laporan Normal
                                       </h2>
-                                      <form class="flex gap-2" action="/adminNormal/searchNormal" method="get">
+                                      <form class="flex gap-2" action="{{ route('adminNormalSearch') }}" method="get">
                                         @csrf
                                       <div class="relative border rounded-md">
                                           <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5">
@@ -122,7 +122,7 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-start text-sm font-medium">
-                                            <form class="inline" action="/adminNormal/{{ $laporan->id }}/update"
+                                            <form class="inline" action="{{ route('adminNormalUpdate', $laporan->id)}}"
                                                 method="POST">
                                                 @csrf
                                                 <button type="submit"
@@ -130,7 +130,7 @@
                                                 </button>
                                             </form>
 
-                                            <form class="inline" action="/adminNormal/{{ $laporan->id }}"
+                                            <form class="inline" action="{{ route('adminNormalDestroy', $laporan->id)}}"
                                                 method="POST">
                                                 @csrf
                                                 <button type="submit"

@@ -50,7 +50,7 @@
                 <div class="grid md:grid-cols-4 border border-gray-200 shadow-sm rounded-xl overflow-hidden">
                     <!-- Card -->
                     <a class="block p-4 md:p-5 relative bg-white hover:bg-gray-50 focus:outline-none focus:bg-gray-50 before:absolute before:top-0 before:start-0 before:w-full before:h-px md:before:w-px md:before:h-full before:bg-gray-200 before:first:bg-transparent"
-                        href="/akunTerverifikasiUser">
+                        href="{{ route('akunTerverifikasiUser') }}">
                         <div class="flex md:flex flex-col lg:flex-row gap-y-3 gap-x-5">
                             <svg class="shrink-0 size-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24"
                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -84,7 +84,7 @@
 
                     <!-- Card -->
                     <a class="block p-4 md:p-5 relative bg-white hover:bg-gray-50 focus:outline-none focus:bg-gray-50 before:absolute before:top-0 before:start-0 before:w-full before:h-px md:before:w-px md:before:h-full before:bg-gray-200 before:first:bg-transparent"
-                        href="/adminDarurat">
+                        href="{{ route('adminDarurat') }}">
                         <div class="flex md:flex flex-col lg:flex-row gap-y-3 gap-x-5">
                             <svg class="shrink-0 size-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24"
                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -118,7 +118,7 @@
 
                     <!-- Card -->
                     <a class="block p-4 md:p-5 relative bg-white hover:bg-gray-50 focus:outline-none focus:bg-gray-50 before:absolute before:top-0 before:start-0 before:w-full before:h-px md:before:w-px md:before:h-full before:bg-gray-200 before:first:bg-transparent"
-                        href="/adminNormal">
+                        href="{{ route('adminNormal') }}">
                         <div class="flex md:flex flex-col lg:flex-row gap-y-3 gap-x-5">
                             <svg class="shrink-0 size-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24"
                                 height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -150,7 +150,7 @@
 
                     <!-- Card -->
                     <a class="block p-4 md:p-5 relative bg-white hover:bg-gray-50 focus:outline-none focus:bg-gray-50 before:absolute before:top-0 before:start-0 before:w-full before:h-px md:before:w-px md:before:h-full before:bg-gray-200 before:first:bg-transparent"
-                        href="/manageBerita">
+                        href="{{ route('manageBerita') }}">
                         <div class="flex md:flex flex-col lg:flex-row gap-y-3 gap-x-5">
                             <svg class="shrink-0 size-5 text-gray-400" xmlns="http://www.w3.org/2000/svg"
                                 width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -209,7 +209,7 @@
         </span>
       </div>
       <div class="inline-flex items-center">
-        <form action="/dashboard" >
+        <form action="{{ route('dashboard') }}" >
         <select  name="year" id="year" class="inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-s">
           <option class="text-[#1f2937] space-y-0.5 font-sans" value="{{$yearSelect}}"  hidden>
           {{$yearSelect}}

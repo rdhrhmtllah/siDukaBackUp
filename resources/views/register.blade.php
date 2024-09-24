@@ -26,7 +26,7 @@
                     <p class="mt-2 text-sm text-gray-600">
                         Sudah Punya Akun?
                         <a class="text-[#e6b9a6] decoration-2 hover:underline focus:outline-none focus:underline font-medium"
-                            href="/login">
+                            href="{{ route('login') }}">
                             Log in Disini
                         </a>
                     </p>
@@ -57,7 +57,7 @@
                         Or</div> --}}
 
                     <!-- Form -->
-                    <form action="/register" method="post">
+                    <form action="{{ route('registerUser') }}" method="post">
                         @csrf
                         <div class="md:grid grid-cols-3 gap-4">
                             <div >

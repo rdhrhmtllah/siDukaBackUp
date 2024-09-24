@@ -16,7 +16,7 @@
                                   <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200">
                                    Admin
                                   </h2>
-                                  <form class="flex gap-2" action="/akunTerverifikasi/searchAdmin" method="get">
+                                  <form class="flex gap-2" action="{{ route('akunTerverifikasiSearch') }}" method="get">
                                     @csrf
                                   <div class="relative border rounded-md">
                                       <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5">
@@ -99,7 +99,7 @@
                                         </button>
 
 
-                                        <form class="inline" action="/akunTerverifikasi/{{ $data->id }}" method="POST">
+                                        <form class="inline" action="{{ route('akunTerverifikasiDestroy', $data->id) }}" method="POST">
                                             @csrf
                                             <button type="submit"
                                                 class="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-red-600 hover:text-red-800 focus:outline-none focus:text-red-800 disabled:opacity-50 disabled:pointer-events-none">Delete</button>
@@ -136,7 +136,7 @@
 
                                                 </div>
 
-                                                <form action="/akunTerverifikasi/{{ $data->id }}/edit" method="post">
+                                                <form action="{{ route('akunTerverifikasiEdit', $data->id) }}" method="post">
                                                     @csrf
                                                     <div class="md:grid grid-cols-3 gap-4">
                                                         <div >
@@ -237,7 +237,7 @@
                                                                     class="block text-sm mb-2">Nohp</label>
                                                                 <div
                                                                     class="relative  border rounded-lg  @error('nohp') border-red-500 @enderror">
-                                                                    <input type="number" id="nohp"
+                                                                    <input type="tel" id="nohp"
                                                                         value="{{ old('nohp', $data->nohp) }}"
                                                                         name="nohp"
                                                                         class="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-[#ffb588] focus:ring-[#ffb588] disabled:opacity-50 disabled:pointer-events-none"
@@ -377,7 +377,7 @@
 
                     </div>
 
-                    <form action="/addAdmin" method="post">
+                    <form action="{{ route('addAdmin') }}" method="post">
                         @csrf
                         <div class="md:grid grid-cols-3 gap-4">
                             <div >

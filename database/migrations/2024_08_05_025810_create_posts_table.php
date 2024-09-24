@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignId('author_id')->constrained(
                 table: 'users',
                 indexName: 'posts_author_id'
-            );
+            )->onDelete('cascade');
             $table->text('isi');
             $table->integer('count')->nullable();
             $table->timestamps();

@@ -126,7 +126,7 @@
                     <div class="space-y-6">
                         <!-- Media -->
                         @foreach ($posts as $single)
-                            <a class="group flex items-center gap-x-6" href="/moreberita/{{ $single['slug'] }}">
+                            <a class="group flex items-center gap-x-6" href="{{ route('satuBerita', $single['slug']) }}">
                                 <div class="grow">
                                     <span class="text-sm font-bold text-gray-800 group-hover:text-blue-600  ">
                                         {{ $single['title'] }}

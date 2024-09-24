@@ -37,7 +37,7 @@
                                       <h2 class="text-xl font-semibold text-gray-800 dark:text-neutral-200">
                                        Manage Berita
                                       </h2>
-                                      <form class="flex gap-2" action="/manageBerita/searchBerita" method="get">
+                                      <form class="flex gap-2" action="{{ route('manageBeritaSearch') }}" method="get">
                                         @csrf
                                       <div class="relative border rounded-md">
                                           <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5">
@@ -132,7 +132,7 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                            <form class="inline" action="/manageBerita/{{ $data->slug }}/show"
+                                            <form class="inline" action="{{ route('manageBeritaShow',$data->slug) }}"
                                                 method="POST">
                                                 @csrf
                                                 <button type="submit"
@@ -140,7 +140,7 @@
                                                 </button>
                                             </form>
 
-                                            <form class="inline" action="/manageBerita/{{ $data->slug }}"
+                                            <form class="inline" action="{{ route('manageBeritaDestroy',$data->slug) }}"
                                                 method="POST">
                                                 @csrf
                                                 <button type="submit"
@@ -209,7 +209,7 @@
 
                     </div>
 
-                    <form action="/addBerita" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('addBerita') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="grid grid-cols-3 gap-3 ">
                             <div  class="my-2 col-span-3">

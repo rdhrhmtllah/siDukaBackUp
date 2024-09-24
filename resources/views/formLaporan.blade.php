@@ -55,7 +55,7 @@
                         Or</div> --}}
 
                     <!-- Form -->
-                    <form action="/laporkan" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('laporkan') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="md:grid grid-cols-3 gap-4">
                             <div class="col-span-2">

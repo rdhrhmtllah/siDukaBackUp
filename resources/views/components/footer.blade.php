@@ -16,7 +16,7 @@
                     KOTAK SARAN
                 </h2>
 
-                <form action="/kotakSaran" method="POST">
+                <form action="{{ route('kotakSaran') }}" method="POST">
                     @csrf
                     <div class="grid gap-4">
                         <!-- Grid -->

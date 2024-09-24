@@ -52,19 +52,19 @@
                             <span class="text-sm">{{ $post->created_at->diffForHumans() }}</span>
                         </div>
                         <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 "><a
-                                href="moreberita/{{ $post['slug'] }}">{{ $post['title'] }}</a></h2>
+                                href="{{ route('satuBerita', $post['slug']) }}">{{ $post['title'] }}</a></h2>
                         <p class="mb-5 font-light text-gray-500 dark:text-gray-400">{{ Str::limit($post['isi'], 150) }}
                         </p>
                         <div class="flex justify-between items-center">
                             <div class="flex items-center space-x-4">
-                                <img class="w-7 h-7 rounded-full"
-                                    src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
-                                    alt="Jese Leos avatar" />
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-9">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                  </svg>
                                 <span class="font-medium ">
                                     {{ $post->author->name }}
                                 </span>
                             </div>
-                            <a href="moreberita/{{ $post['slug'] }}"
+                            <a href="{{ route('satuBerita', $post['slug']) }}"
                                 class="inline-flex items-center font-medium text-primary-600 ">
                                 Read more
                                 <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
@@ -81,7 +81,7 @@
 
             </div>
             <div class="my-6 place-self-center">
-                <a href="/moreberita" class=" items-center font-medium text-primary-600 inline-flex ">Lebih Banyak <svg
+                <a href="{{ route('moreBerita') }}" class=" items-center font-medium text-primary-600 inline-flex ">Lebih Banyak <svg
                         class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd"
                             d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"

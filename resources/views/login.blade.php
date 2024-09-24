@@ -30,7 +30,7 @@
                     <p class="mt-2 text-sm text-gray-600">
                         Belum punya akun?
                         <a class="text-[#e6b9a6] decoration-2 hover:underline focus:outline-none focus:underline font-medium"
-                            href="/register">
+                            href="{{ route('register') }}">
                             Daftar Disini
                         </a>
                     </p>
@@ -61,7 +61,7 @@
                         Or</div> --}}
 
                     <!-- Form -->
-                    <form action="/login" method="POST">
+                    <form action="{{ route('loginUser') }}" method="POST">
                         @csrf
                         <div class="grid gap-y-4">
                             <!-- Form Group -->
@@ -88,7 +88,7 @@
                                 <div class="flex justify-between items-center ">
                                     <label for="password" class="block text-sm mb-2">Password</label>
                                     <a class="inline-flex items-center gap-x-1 text-sm decoration-2 hover:underline focus:outline-none focus:underline font-medium"
-                                        href="/resetPass">Lupa Password?</a>
+                                        href="{{ route('resetPass') }}">Lupa Password?</a>
                                 </div>
                                 <div class="relative  border rounded-lg">
                                     <input required type="password" id="password" name="password"

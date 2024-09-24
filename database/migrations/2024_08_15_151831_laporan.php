@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained(
                 table: 'users',
                 indexName: 'laporan_user_id'
-            );
+            )->onDelete('cascade');
             $table->string('judulKejadian')->nullable();
             $table->string('nohp');
             $table->string('lokasi');

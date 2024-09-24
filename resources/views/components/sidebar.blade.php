@@ -14,7 +14,7 @@ lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
            <div class="px-6 pt-4">
                <!-- Logo -->
                <a class="flex-none rounded-xl text-xl inline-block font-semibold focus:outline-none focus:opacity-80"
-                   href="/" aria-label="Preline">
+                   href="{{ route('home') }}" aria-label="Preline">
                    <h1 class="text-2xl font-bold">siDuka.</h1>
                </a>
                <!-- End Logo -->
@@ -27,7 +27,7 @@ lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
                    <ul class="flex flex-col space-y-1">
                        <li>
                            <a class="flex items-center gap-x-3.5 py-2 px-2.5 {{ request()->is('dashboard') ? 'bg-gray-100' : '' }} text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                               href="/dashboard">
+                               href="{{ route('dashboard') }}">
                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -98,13 +98,13 @@ lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
                                            <ul class="pt-1 space-y-1">
                                                <li>
                                                    <a class="{{ request()->is('akunTerverifikasi/*') ? 'bg-gray-100' : '' }} flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                                                       href="/akunTerverifikasi">
+                                                       href="{{ route('akunTerverifikasi') }}">
                                                        Admin
                                                    </a>
                                                </li>
                                                <li>
                                                    <a class="{{ request()->is('akunTerverifikasiUser*') ? 'bg-gray-100' : '' }}  flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                                                       href="/akunTerverifikasiUser">
+                                                       href="{{ route('akunTerverifikasiUser') }}">
                                                        User
                                                    </a>
                                                </li>
@@ -114,7 +114,7 @@ lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
                                    </li>
                                    <li class="hs-accordion" id="users-accordion-sub-2">
                                     <a class="{{ request()->is('akunBelumVerifikasi') ? 'bg-gray-100' : '' }}  flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                                    href="/akunBelumVerifikasi">
+                                    href='{{ route('akunBelumVerifikasi') }}'>
                                    Belum Diverifikasi
                                 </a>
 
@@ -221,7 +221,7 @@ lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
                                <ul class="ps-8 pt-1 space-y-1">
                                    <li>
                                        <a class="{{ request()->is('adminDarurat*') ? 'bg-gray-100' : '' }} justify-between flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                                           href="/adminDarurat">
+                                           href="{{ route('adminDarurat') }}">
                                            Darurat
                                            <div class="flex flex-wrap items-center justify-center text-center ">
                                                <span
@@ -234,7 +234,7 @@ lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
                                    </li>
                                    <li>
                                        <a class="{{ request()->is('adminNormal*') ? 'bg-gray-100' : '' }} justify-between flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                                           href="/adminNormal">
+                                           href="{{ route('adminNormal') }}">
                                            Normal
                                            <span
                                                class="p-1 items-center rounded-full text-xs font-medium ">{{ $hitungNormal }}</span>
@@ -242,7 +242,7 @@ lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
                                    </li>
                                    <li class="inline">
                                        <a class="{{ request()->is('adminSelesai*') ? 'bg-gray-100' : '' }} justify-between flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                                           href="/adminSelesai">
+                                           href="{{ route('adminSelesai') }}">
                                            Selesai
                                            <span
                                                class="p-1 items-center rounded-full text-xs font-medium ">{{ $hitungSelesai }}</span>
@@ -255,7 +255,7 @@ lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
 
 
                        <li><a class="{{ request()->is('manageBerita*') ? 'bg-gray-100' : '' }} w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
-                               href="/manageBerita">
+                               href="{{ route('manageBerita') }}">
                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -265,7 +265,7 @@ lg:block lg:translate-x-0 lg:end-auto lg:bottom-0
                                Berita
                            </a></li>
                        <li><a class="{{ request()->is('manageKotakSaran*') ? 'bg-gray-100' : '' }} w-full flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-gray-800 rounded-lg hover:bg-gray-100"
-                               href="/manageKotakSaran">
+                               href="{{ route('manageKotakSaran') }}">
                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24"
                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

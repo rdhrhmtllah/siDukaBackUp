@@ -32,7 +32,7 @@
       <p class="text-justify leading-normal" style="">Urgensi : {{$data['urgensi']}}</p>
       <p class="text-start my-2 font-bold">Lokasi :  {{ $data['lokasi'] }}</p>
       <div class="mt-5 p-4 bg-[#757a62]  text-center border shadow-sm rounded-xl mx-auto">
-        <a href="http://sidukabackup.test/adminDarurat" style="text-decoration: none; color:black; font-weight:bold;">
+        <a href="https://kpadsumsel.or.id/app-layanan-aduan/adminDarurat" style="text-decoration: none; color:black; font-weight:bold;">
           Kunjungi
         </a>
       </div>

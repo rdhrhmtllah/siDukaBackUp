@@ -31,7 +31,7 @@
 
                 <div class="mt-5">
                    
-                    <form action="/resetPass/sendRecover" method="post">
+                    <form action="{{route('password.email')}}" method="post">
                         @csrf
                         <div class="grid grid-cols-3 gap-4 place-content-center">
                             <div class="col-span-2">

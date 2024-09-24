@@ -27,7 +27,7 @@
               <div class="mt-5">
     <!-- Content -->
 
-     <form action="/reset-password" method="POST">
+     <form action="{{route('password.update')}}" method="POST">
         @csrf
         <input name="token" type="hidden" value="{{$token}}">
         <div class="col-span-3">
@@ -100,7 +100,7 @@
           <!-- End Form Group -->
       </div>
 
-        <button type="sumbit" class="p-4 m-3 mt-5 bg-[#757a62] text-white font-bold  w-full text-center border shadow-sm rounded-xl mx-auto" >Reset Password</button>
+        <button type="sumbit" class="p-4 m-3 mt-5 bg-[#e6b9a6] text-white font-bold  w-full text-center border shadow-sm rounded-xl mx-auto" >Reset Password</button>
     </form>
     
     <!-- End Content -->
